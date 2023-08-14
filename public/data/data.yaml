@@ -1,6 +1,9 @@
+name: 'Bishal Karmakar'
+designation: 'Software Developer'
 profileImage: 
   src: 
     sq: '/assets/profile_pic_sq.png'
+    sqBgRemoved: '/assets/profile_pic_sq_bg_removed.png'
     bgRemoved: '/assets/profile_pic_bg_removed.png'
   altText: 'Profile Image'
 welcomeQuote: 'Welcome to my online home, where logic and imagination meet to create something truly amazing.'

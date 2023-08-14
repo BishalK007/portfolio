@@ -2,7 +2,8 @@ import React from 'react'
 import * as yaml from 'js-yaml';
 import * as fs from 'fs';
 import '@styles/globals.css'
-import WelcomeScreen from '@components/welcome_screen';
+import WelcomeScreen from '@/components/welcome_screen';
+
 
 
 

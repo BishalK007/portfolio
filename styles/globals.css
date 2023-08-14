@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Borel&family=Caprasimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Bricolage+Grotesque:opsz@10..48&family=Caprasimo&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    background-image: url('/assets/bg_gradient.jpg');
+    /* background-image: url('/assets/bg_gradient.jpg'); */
+    background-color: #1e1e21;
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -13,13 +14,9 @@ body {
     /* height: 2000px; */
 }
 
-.container {
-    position: relative;
-  }
-  
-  .box {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  
+.profile-image {
+    background: linear-gradient(to Right, #1e1e21, white);
+    
+}
+
+
