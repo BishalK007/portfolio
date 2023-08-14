@@ -1,26 +1,22 @@
 import React from 'react'
-import Feed from '@components/Feed'
+import * as yaml from 'js-yaml';
+import * as fs from 'fs';
+import '@styles/globals.css'
+import WelcomeScreen from '@components/welcome_screen';
 
 
-export default function Home() {
+
+const page = () => {
+    const fileContents = fs.readFileSync('public/data/data.yaml', 'utf8');
+    const data = yaml.load(fileContents) as Data;
   return (
-    <section className="w-full flex-center flex-col">
-        <h1 className="head_text text-center">
-            Discover and Share{" "}
-            <br className="md:hidden" />
-            
-            <span className="blue_gradient text-center">AI Prompts</span>
-        </h1>
-        <p className="desc text-center">
-        &ldquo;Discover endless creative possibilities with PROMPTBAZAAR - the AI-powered prompts archive. 
-        Unleash your imagination and
-         kickstart your writing, art, or any other project with prompts made by the community.&rdquo;
-        </p>
-        {/* */
-         /*__________________________ Feed   ______________________ */
-         /* */}   
-        <Feed />
-
-    </section>
-  );
+    <div className="">
+      <WelcomeScreen
+        data={data}
+      />
+      <div className="h-[1000px]"></div>
+    </div>
+  )
 }
+
+export default page
