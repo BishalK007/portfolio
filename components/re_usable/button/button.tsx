@@ -1,37 +1,48 @@
 import React from 'react';
+import styled from 'styled-components';
 
 interface ButtonProps {
-  text: string;
-  textColor: string;
-  bgColor: string;
-  height: number;
-  width: number;
-  cornerRadius: number[];
-  tailwindClass: string;
-  borderColor: string;
-  borderWidth: number;
-  onClick: () => void;
+  text?: string;
+  textColor?: string;
+  hoverTextColor?: string;
+  bgColor?: string;
+  hoverColor?: string;
+  height?: number;
+  width?: number;
+  cornerRadius?: number[];
+  tailwindClass?: string;
+  borderColor?: string;
+  borderWidth?: number;
+  onClick?: () => void;
 }
+
+const StyledButton = styled.button<ButtonProps>
+  `
+  color: ${(props: ButtonProps) => props.textColor};
+  background-color: ${(props: ButtonProps) => props.bgColor};
+  height: ${(props: ButtonProps) => props.height}px;
+  width: ${(props: ButtonProps) => props.width}px;
+  border-radius: ${(props: ButtonProps) =>
+    props.cornerRadius?.length === 4
+      ? `${props.cornerRadius[0]}px ${props.cornerRadius[1]}px ${props.cornerRadius[2]}px ${props.cornerRadius[3]}px`
+      : undefined};
+  border: ${(props: ButtonProps) => `${props.borderWidth}px solid ${props.borderColor}`};
+  
+  &:hover {
+    background-color: ${(props: ButtonProps) => props.hoverColor};
+    color: ${(props: ButtonProps) => props.hoverTextColor};
+  }
+`;
 
 const Button: React.FC<ButtonProps> = (ButtonProps) => {
   return (
-    <button
+    <StyledButton
       className={ButtonProps.tailwindClass}
-      style={{
-        color: ButtonProps.textColor,
-        backgroundColor: ButtonProps.bgColor,
-        height: ButtonProps.height,
-        width: ButtonProps.width,
-        borderRadius:
-          ButtonProps.cornerRadius.length === 4
-            ? `${ButtonProps.cornerRadius[0]}px ${ButtonProps.cornerRadius[1]}px ${ButtonProps.cornerRadius[2]}px ${ButtonProps.cornerRadius[3]}px`
-            : undefined,
-        border: `${ButtonProps.borderWidth}px solid ${ButtonProps.borderColor}`,
-      }}
       onClick={ButtonProps.onClick}
+      {...ButtonProps}
     >
       {ButtonProps.text}
-    </button>
+    </StyledButton>
   );
 };
 
@@ -45,7 +56,7 @@ Button.defaultProps = {
   tailwindClass: '',
   borderColor: 'black',
   borderWidth: 0,
-  onClick: () => {},
+  onClick: () => { },
 };
 
 export default Button;

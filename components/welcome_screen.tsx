@@ -66,12 +66,12 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
                   height={60}
                   width={180}
                   text='Contact Me'
-                  bgColor='rgb(74 222 128)'
+                  bgColor='var(--green-500)'
                   textColor='black'
                   cornerRadius={[10, 10, 10, 10]}
-                  tailwindClass='text-2xl font-bold '
                   borderColor='white'
                   borderWidth={0}
+                  tailwindClass='text-2xl font-bold hover:scale-105 transition-all duration-500'
                   onClick={()=>{}}
                 />
                 <Button
@@ -79,14 +79,15 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
                   width={140}
                   text='Download CV'
                   bgColor='transparent'
+                  hoverColor='white'
                   textColor='white'
+                  hoverTextColor='black'
                   cornerRadius={[10, 10, 10, 10]}
-                  tailwindClass='text-xl font-bold '
                   borderColor='white'
                   borderWidth={2}
+                  tailwindClass='text-xl font-bold transition-all duration-500'
                   onClick={()=>{}}
                 />
-                {/* <Button /> */}
               </div>
             </div>
           </div>

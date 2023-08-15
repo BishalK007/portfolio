@@ -4,6 +4,11 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+    --green-500: rgb(74 222 128);
+    --secondary-color: #00ff00;
+  }
+
 body {
     /* background-image: url('/assets/bg_gradient.jpg'); */
     background-color: #1e1e21;
