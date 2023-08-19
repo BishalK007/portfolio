@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 interface ButtonProps {
   text?: string;
@@ -16,47 +15,53 @@ interface ButtonProps {
   onClick?: () => void;
 }
 
-const StyledButton = styled.button<ButtonProps>
-  `
-  color: ${(props: ButtonProps) => props.textColor};
-  background-color: ${(props: ButtonProps) => props.bgColor};
-  height: ${(props: ButtonProps) => props.height}px;
-  width: ${(props: ButtonProps) => props.width}px;
-  border-radius: ${(props: ButtonProps) =>
-    props.cornerRadius?.length === 4
-      ? `${props.cornerRadius[0]}px ${props.cornerRadius[1]}px ${props.cornerRadius[2]}px ${props.cornerRadius[3]}px`
-      : undefined};
-  border: ${(props: ButtonProps) => `${props.borderWidth}px solid ${props.borderColor}`};
-  
-  &:hover { 
-    background-color: ${(props: ButtonProps) => props.hoverColor};
-    color: ${(props: ButtonProps) => props.hoverTextColor};
-  }
-`;
+const Button: React.FC<ButtonProps> = ({
+  text = 'Click me!',
+  textColor = 'black',
+  hoverTextColor = 'black',
+  bgColor = 'white',
+  hoverColor = bgColor,
+  height = 40,
+  width = 100,
+  cornerRadius = [0, 0, 0, 0],
+  borderColor = 'black',
+  borderWidth = 0,
+  tailwindClass,
+  onClick = () => { },
 
-const Button: React.FC<ButtonProps> = (ButtonProps) => {
+}) => {
   return (
-    <StyledButton
-      className={ButtonProps.tailwindClass}
-      onClick={ButtonProps.onClick}
-      {...ButtonProps}
+    <button
+      className={tailwindClass}
+      onClick={onClick}
+      style={{
+        color: textColor,
+        backgroundColor: bgColor,
+        height: height,
+        width: width,
+        borderRadius: cornerRadius
+          ? cornerRadius.map((value) => `${value}px`).join(" ")
+          : "0",
+        borderWidth: borderWidth,
+        borderColor: borderColor,
+        transition: "background-color 0.3s, color 0.3s",
+        cursor: "pointer",
+      }}
+      onMouseEnter={(e) => {
+        const target = e.currentTarget as HTMLButtonElement;
+        target.style.backgroundColor = hoverColor;
+        target.style.color = hoverTextColor;
+      }}
+      onMouseLeave={(e) => {
+        const target = e.currentTarget as HTMLButtonElement;
+        target.style.backgroundColor = bgColor;
+        target.style.color = textColor;
+      }}
     >
-      {ButtonProps.text}
-    </StyledButton>
-  );
-};
+      {text}
+    </button>
 
-Button.defaultProps = {
-  text: 'Click me!',
-  textColor: 'black',
-  bgColor: 'white',
-  height: 40,
-  width: 100,
-  cornerRadius: [0, 0, 0, 0],
-  tailwindClass: '',
-  borderColor: 'black',
-  borderWidth: 0,
-  onClick: () => { },
+  );
 };
 
 export default Button;

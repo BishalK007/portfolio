@@ -5,10 +5,25 @@ import AutoHeightImage from './re_usable/image/auto_height_image'
 import ProfilePic from './re_usable/profile_pic'
 import Typewriter from './re_usable/typewriter_text'
 import Button from './re_usable/button/button'
+import { useInView } from 'react-intersection-observer';
+
 
 const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
   const [welcomeHeight, setWelcomeHeight] = useState(0)
   const [welcomeWidth, setWelcomeWidth] = useState(0)
+  const [quoteref, inView] = useInView({
+    // triggerOnce: true, // Ensures the effect runs only once when component comes into view
+  });
+  const [quoteAnimation, setquoteAnimation] = useState(' scale-[0.8] opacity-0 translate-y-5 ')
+
+  useEffect(() => {
+    if (inView) {
+      setquoteAnimation(' scale-100  translate-y-0 ')
+
+    } else {
+      setquoteAnimation(' scale-[0.8] opacity-0 translate-y-5 ')
+    }
+  }, [inView]);
   useEffect(() => {
     setWelcomeHeight(window.innerHeight);
     setWelcomeWidth(window.innerWidth);
@@ -60,8 +75,13 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
             {/* */
              /*__________________________ Quote  ______________________ */
              /* */}
-            <div className='text-2xl font-caprasimo  absolute top-80 flex flex-col'>
-              {data.welcomeQuote}
+            <div className={'text-2xl font-caprasimo  absolute top-80 flex flex-col '}>
+              <div
+                ref={quoteref}
+                className={'transition-all duration-700 ' + quoteAnimation}
+              >
+                {data.welcomeQuote}
+              </div>
               <div className='pt-10 flex flex-col space-y-4 font-sans'>
                 <Button
                   height={60}
@@ -97,7 +117,7 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
     )
   }
   //_____________Mobile View
-  else {
+  else if(welcomeWidth > 0 ) {
     return (
       <div className='px-10'>
         <div className="flex flex-col screen545:flex-row  pt-16  items-center screen545:items-start">
@@ -128,41 +148,52 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
           </div>
         </div>
 
-        <div className='pt-8  text-xl screen545:text-2xl font-caprasimo text-white top-80 flex flex-col  screen545:pt-14 px-5 text-center screen545:text-left'>
+        <div
+          ref={quoteref}
+          className={'pt-8  text-xl screen545:text-2xl font-caprasimo text-white top-80 flex flex-col  screen545:pt-14 px-5 text-center screen545:text-left transition-all duration-700' + quoteAnimation}>
           {data.welcomeQuote}
         </div>
         <div className='pt-10 flex flex-col space-y-4 font-sans items-center screen545:items-start pl-5'>
-                <Button
-                  height={50}
-                  width={160}
-                  text='Contact Me'
-                  bgColor='var(--green-500)'
-                  textColor='black'
-                  cornerRadius={[10, 10, 10, 10]}
-                  borderColor='white'
-                  borderWidth={0}
-                  tailwindClass='text-xl font-bold hover:scale-105 transition-all duration-500'
-                  onClick={() => { }}
-                />
-                <Button
-                  height={40}
-                  width={140}
-                  text='Download CV'
-                  bgColor='transparent'
-                  hoverColor='white'
-                  textColor='white'
-                  hoverTextColor='black'
-                  cornerRadius={[10, 10, 10, 10]}
-                  borderColor='white'
-                  borderWidth={2}
-                  tailwindClass='text-lg font-bold transition-all duration-500 ml-[2px]'
-                  onClick={() => { }}
-                />
-              </div>
+          <Button
+            height={50}
+            width={160}
+            text='Contact Me'
+            bgColor='var(--green-500)'
+            textColor='black'
+            cornerRadius={[10, 10, 10, 10]}
+            borderColor='white'
+            borderWidth={0}
+            tailwindClass='text-xl font-bold hover:scale-105 transition-all duration-500'
+            onClick={() => { }}
+          />
+          <Button
+            height={40}
+            width={140}
+            text='Download CV'
+            bgColor='transparent'
+            hoverColor='white'
+            textColor='white'
+            hoverTextColor='black'
+            cornerRadius={[10, 10, 10, 10]}
+            borderColor='white'
+            borderWidth={2}
+            tailwindClass='text-lg font-bold transition-all duration-500 ml-[2px]'
+            onClick={() => { }}
+          />
+        </div>
       </div>
     )
   }
+  else {
+    return <></>
+  }
 
 }
+
+
+
+
+
+
 
 export default WelcomeScreen

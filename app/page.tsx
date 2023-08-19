@@ -15,7 +15,7 @@ const page = () => {
       <WelcomeScreen
         data={data}
       />
-      <div className="h-[1000px]"></div>
+      <div className="h-[3000px]"></div>
     </div>
   )
 }
