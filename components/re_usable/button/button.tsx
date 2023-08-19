@@ -28,7 +28,7 @@ const StyledButton = styled.button<ButtonProps>
       : undefined};
   border: ${(props: ButtonProps) => `${props.borderWidth}px solid ${props.borderColor}`};
   
-  &:hover {
+  &:hover { 
     background-color: ${(props: ButtonProps) => props.hoverColor};
     color: ${(props: ButtonProps) => props.hoverTextColor};
   }
