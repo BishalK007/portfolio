@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from 'react'
 import AutoWidthImage from './re_usable/image/auto_width_image'
 import AutoHeightImage from './re_usable/image/auto_height_image'
-import ProfilePic from './re_usable/profile_pic'
-import Typewriter from './re_usable/typewriter_text'
+import ProfilePic from './re_usable/image/profile_pic'
+import Typewriter from './re_usable/text/typewriter_text'
 import Button from './re_usable/button/button'
 import { useInView } from 'react-intersection-observer';
 
@@ -84,15 +84,19 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
               </div>
               <div className='pt-10 flex flex-col space-y-4 font-sans'>
                 <Button
-                  height={60}
-                  width={180}
+                  height={70}
+                  width={220}
                   text='Contact Me'
-                  bgColor='var(--green-500)'
+                  bgColor='white'
                   textColor='black'
-                  cornerRadius={[10, 10, 10, 10]}
                   borderColor='white'
                   borderWidth={0}
-                  tailwindClass='text-2xl font-bold hover:scale-105 transition-all duration-1000 '
+                  showBackDrop={true}
+                  backDropTranslate={[8, 8]}
+                  backDropColor='var(--green-500)'
+                  hoverAnimation='backdrop-animation'
+                  animationDuration={700}
+                  tailwindClass='text-2xl font-bold '
                   onClick={() => { }}
                 />
                 <Button
@@ -100,13 +104,10 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
                   width={140}
                   text='Download CV'
                   bgColor='transparent'
-                  hoverColor='white'
                   textColor='white'
-                  hoverTextColor='black'
-                  cornerRadius={[10, 10, 10, 10]}
-                  borderColor='white'
+                  borderColor='transparent'
                   borderWidth={2}
-                  tailwindClass='text-xl font-bold transition-all duration-1000 ml-[2px]'
+                  tailwindClass='text-xl font-bold ml-[2px]'
                   onClick={() => { }}
                 />
               </div>
@@ -117,7 +118,7 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
     )
   }
   //_____________Mobile View
-  else if(welcomeWidth > 0 ) {
+  else if (welcomeWidth > 0) {
     return (
       <div className='px-10'>
         <div className="flex flex-col screen545:flex-row  pt-16  items-center screen545:items-start">
@@ -158,12 +159,16 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
             height={50}
             width={160}
             text='Contact Me'
-            bgColor='var(--green-500)'
+            bgColor='white'
             textColor='black'
-            cornerRadius={[10, 10, 10, 10]}
             borderColor='white'
             borderWidth={0}
-            tailwindClass='text-xl font-bold hover:scale-105 transition-all duration-1000'
+            showBackDrop={true}
+            backDropTranslate={[8, 8]}
+            backDropColor='var(--green-500)'
+            hoverAnimation='backdrop-animation'
+            animationDuration={700}
+            tailwindClass='text-2xl font-bold '
             onClick={() => { }}
           />
           <Button
@@ -171,13 +176,10 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
             width={140}
             text='Download CV'
             bgColor='transparent'
-            hoverColor='white'
             textColor='white'
-            hoverTextColor='black'
-            cornerRadius={[10, 10, 10, 10]}
-            borderColor='white'
+            borderColor='transparent'
             borderWidth={2}
-            tailwindClass='text-lg font-bold transition-all duration-1000 ml-[2px]'
+            tailwindClass='text-xl font-bold ml-[2px]'
             onClick={() => { }}
           />
         </div>

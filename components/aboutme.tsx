@@ -1,6 +1,7 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import AboutMeCard from './re_usable/card/about_me_card'
+import UnderlineText from './re_usable/text/underline_text'
 
 const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
   const [windowWidth, setWindowWidth] = useState(0)
@@ -44,9 +45,14 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
            /*__________________________ Personal Details  ______________________ */
            /* */}
           <div className="flex flex-col pt-20 font-bricolage_grotesque w-full">
-            <div className='text-2xl xsm:text-3xl sm:text-4xl '>
-              Personal Details -
-            </div>
+            <UnderlineText
+              underLineHeight={2}
+              children={'Personal Details -'}
+              classTW='text-2xl xsm:text-3xl sm:text-4xl'
+              color='var(--green-500)'
+              spacing={10}
+            />
+
             <AboutMeCard
               dataMap={dataMap}
               cols={windowWidth <= 710 ? 1 : 2}
@@ -61,9 +67,13 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
            /*__________________________ Skills  ______________________ */
            /* */}
           <div className="flex flex-col pt-20 font-bricolage_grotesque w-full justify-between screen545:pl-10 ">
-            <div className='text-2xl xsm:text-3xl sm:text-4xl '>
-              Skills -
-            </div>
+            <UnderlineText
+              underLineHeight={2}
+              children={'Skills -'}
+              classTW='text-2xl xsm:text-3xl sm:text-4xl'
+              color='var(--green-500)'
+              spacing={10}
+            />
             <div
               className='bg-red-500 mt-10'
               style={{ width: windowWidth <= 1040 ? '100% ' : '40vw', height: 600 }}
