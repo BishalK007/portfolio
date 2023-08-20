@@ -3,6 +3,7 @@ import * as yaml from 'js-yaml';
 import * as fs from 'fs';
 import '@styles/globals.css'
 import WelcomeScreen from '@/components/welcome_screen';
+import AboutMe from '@components/aboutme';
 
 
 
@@ -15,7 +16,11 @@ const page = () => {
       <WelcomeScreen
         data={data}
       />
-      <div className="h-[3000px]"></div>
+      <AboutMe 
+        data={data}
+      />
+      <div className="h-[3000px] ">
+      </div>
     </div>
   )
 }

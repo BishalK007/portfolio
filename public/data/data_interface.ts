@@ -10,5 +10,14 @@ interface Data {
       altText: string;
     };
     welcomeQuote: string;
+    aboutMe: {
+      firstName: string 
+      lastName: string
+      dob: string
+      phoneNo: string
+      city: string
+      mail: string
+      languages: string[]
+    }
   }
   

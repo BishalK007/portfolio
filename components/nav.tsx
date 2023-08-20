@@ -8,10 +8,10 @@ const Nav = () => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
         setNavHeight('h-16')
-        console.log('out');
+        // console.log('out');
       } else {
         setNavHeight('h-20')
-        console.log('in');
+        // console.log('in');
       }
     }
 

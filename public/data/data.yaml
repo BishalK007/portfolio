@@ -7,3 +7,13 @@ profileImage:
     bgRemoved: '/assets/profile_pic_bg_removed.png'
   altText: 'Profile Image'
 welcomeQuote: 'Welcome to my online home, where logic and imagination meet to create something truly amazing.'
+
+aboutMe:
+  firstName: Bishal 
+  lastName: Karmakar
+  dob: 08/03/2003
+  phoneNo: '+916290802437'
+  city: Kolkata
+  mail: bishal123official@gmail.com
+  languages: ["English", "Hindi", "Bengali"]
+

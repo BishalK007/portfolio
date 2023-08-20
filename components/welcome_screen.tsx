@@ -41,7 +41,7 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
   //_____________ Desktop View
   if (welcomeWidth > 768) {
     return (
-      <div className="relative pt-20 ">
+      <div className="relative pt-20 h-[900px]">
         <div className='absolute flex flex-row justify-end w-full pr-20 '>
           <ProfilePic
             data={data}
