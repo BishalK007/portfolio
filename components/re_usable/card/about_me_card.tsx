@@ -17,7 +17,7 @@ const AboutMeCard: React.FC<AboutMeCardProps> = ({
     width = 300,
     height = 500,
     isBackDropVisible = true,
-    bgColor = 'black',
+    bgColor = 'white',
     dropColor = 'gray',
     classTW = '',
 }) => {
@@ -27,7 +27,7 @@ const AboutMeCard: React.FC<AboutMeCardProps> = ({
     }, [])
 
     return (
-        <div className={"relative flex justify-center items-center text-lg " + classTW}
+        <div className={"relative flex justify-center items-center text-lg text-black " + classTW}
             style={{
                 height: height,
                 width: width,
