@@ -5,6 +5,7 @@ interface AboutMeCardProps {
     cols?: number;
     width?: number | string;
     height?: number | string;
+    gap?: number,
     isBackDropVisible?: boolean
     bgColor?: string
     dropColor?: string,
@@ -16,6 +17,7 @@ const AboutMeCard: React.FC<AboutMeCardProps> = ({
     cols = 1,
     width = 300,
     height = 500,
+    gap = 16,
     isBackDropVisible = true,
     bgColor = 'white',
     dropColor = 'gray',
@@ -27,7 +29,7 @@ const AboutMeCard: React.FC<AboutMeCardProps> = ({
     }, [])
 
     return (
-        <div className={"relative flex justify-center items-center text-lg text-black " + classTW}
+        <div className={"relative flex justify-center items-center text-black " + classTW}
             style={{
                 height: height,
                 width: width,
@@ -51,16 +53,16 @@ const AboutMeCard: React.FC<AboutMeCardProps> = ({
                 backgroundColor: bgColor,
             }}>
                 <div
-                    className='flex-wrap'
+                    className='w-full px-[10%]'
                     style={{
                         display: 'grid',
-                        gridTemplateColumns: `repeat(${cols}, calc(${gridWidth}% - 0.5rem))`, // Adjusted here
-                        gap: '1rem',
+                        gridTemplateColumns: `repeat(${cols}, calc(${gridWidth}% - ${gap/2}px))`, // Adjusted here
+                        gap: `${gap}px`,
                     }}>
                     {[...Array.from(dataMap)].map(([key, value]) => (
                         <div
                             key={key}
-                            className=' w-full'
+                            className=' w-full '
                             style={{
                                 overflowWrap: 'break-word'
                             }}>
