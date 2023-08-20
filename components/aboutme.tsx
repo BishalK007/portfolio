@@ -59,8 +59,9 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
               height={500}
               width={windowWidth <= 1040 ? '100% ' : '40vw'}
               dropColor='var(--green-500)'
-              classTW='pt-20  text-md sm:text-lg screen900:text-xl  screen1040:text-lg xl:text-xl'
               gap={20}
+              backdropTranslate={[14,14]}
+              classTW='pt-20  text-md sm:text-lg screen900:text-xl  screen1040:text-lg xl:text-xl'
             />
           </div>
           {/* */

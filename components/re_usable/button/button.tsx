@@ -44,7 +44,6 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const backDropRef = useRef<HTMLDivElement | null>(null)
   const [ref, inView] = useInView();
-  // const [backDropTranslateCSS, setBackDropTranslateCSS] = useState(`translate(0,0)`)
 
   useEffect(() => {
     if (inView && backDropRef.current) {

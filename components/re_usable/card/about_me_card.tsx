@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
 
 interface AboutMeCardProps {
     dataMap: Map<string, string>;
@@ -9,6 +10,9 @@ interface AboutMeCardProps {
     isBackDropVisible?: boolean
     bgColor?: string
     dropColor?: string,
+    backdropTranslate?: number[],
+    showAnimation?: boolean
+    animationDuration?: number,
     classTW?: string,
 }
 
@@ -21,15 +25,27 @@ const AboutMeCard: React.FC<AboutMeCardProps> = ({
     isBackDropVisible = true,
     bgColor = 'white',
     dropColor = 'gray',
+    backdropTranslate = [5,5],
+    showAnimation = true,
+    animationDuration = 200,
     classTW = '',
 }) => {
     const gridWidth = 100 / cols
+    const [cardRef, inview] = useInView()
+    const backDropRef = useRef<HTMLDivElement | null>(null)
     useEffect(() => {
-        // console.log(maxHeights)
-    }, [])
+        if(showAnimation && inview && backDropRef.current){
+            backDropRef.current.style.transform = `translate(${backdropTranslate[0]}px, ${backdropTranslate[1]}px)`
+        }
+        if(showAnimation && !inview && backDropRef.current ){
+            backDropRef.current.style.transform = `translate(0,0)`     
+        }
+    }, [inview])
 
     return (
-        <div className={"relative flex justify-center items-center text-black " + classTW}
+        <div
+            ref={cardRef}
+            className={"relative flex justify-center items-center text-black " + classTW}
             style={{
                 height: height,
                 width: width,
@@ -40,11 +56,13 @@ const AboutMeCard: React.FC<AboutMeCardProps> = ({
              /* */}
             {isBackDropVisible &&
                 <div
+                    ref={backDropRef}
                     style={{
                         backgroundColor: dropColor,
-                        
+                        transform: `translate(${backdropTranslate[0]}px, ${backdropTranslate[1]}px)`,
+                        transition: `transform ${animationDuration}ms`
                     }}
-                    className=' translate-x-5 translate-y-5 h-full w-full absolute'
+                    className=' h-full w-full absolute'
                 ></div>}
             {/* */
              /*__________________________ Fromt  ______________________ */
@@ -56,7 +74,7 @@ const AboutMeCard: React.FC<AboutMeCardProps> = ({
                     className='w-full px-[10%]'
                     style={{
                         display: 'grid',
-                        gridTemplateColumns: `repeat(${cols}, calc(${gridWidth}% - ${gap/2}px))`, // Adjusted here
+                        gridTemplateColumns: `repeat(${cols}, calc(${gridWidth}% - ${gap / 2}px))`, // Adjusted here
                         gap: `${gap}px`,
                     }}>
                     {[...Array.from(dataMap)].map(([key, value]) => (
