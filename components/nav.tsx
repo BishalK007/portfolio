@@ -23,7 +23,7 @@ const Nav = () => {
   }, [])
 
   return (
-    <div className={navHeight + ' transition-all duration-500 ease-in-out  bg-black bg-opacity-100 sticky top-0 z-10 text-white'}></div>
+    <div className={navHeight + ' transition-all duration-1000  ease-in-out  bg-black bg-opacity-100 sticky top-0 z-10 text-white'}></div>
   )
 }
 

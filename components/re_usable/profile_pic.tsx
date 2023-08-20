@@ -26,7 +26,7 @@ const ProfilePic: React.FC<ProfilePicProps> = ({ data, width = 100, height = 100
       className="bg-red-300 h-20 w-20 object-cover relative"
       style={{ width, height, maxWidth: 600 }}
     >
-      <div className={`h-full w-full bg-green-500 absolute transition-all duration-700 ${animation}`}></div>
+      <div className={`h-full w-full bg-green-500 absolute transition-all duration-1000 ${animation}`}></div>
       <div className="h-full w-full bg-black profile-image absolute">
         <img
           src={data.profileImage.src.sqBgRemoved}

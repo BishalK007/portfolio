@@ -53,7 +53,7 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
         {/* */
          /*__________________________ Info  ______________________ */
          /* */}
-        <div className='absolute flex flex-row justify-start pr-20 text-white text-6xl  pl-20 h-[800px] ' style={{ width: welcomeWidth / 2 + 20, }}>
+        <div className={'absolute flex flex-row justify-start pr-20 text-white text-6xl  pl-20 h-[800px] '} style={{ width: welcomeWidth / 2 + 20, }}>
           <div className="flex flex-col">
             <div className="w-fit pt-20 font-bricolage_grotesque flex flex-row relative">
               {/* */
@@ -78,7 +78,7 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
             <div className={'text-2xl font-caprasimo  absolute top-80 flex flex-col '}>
               <div
                 ref={quoteref}
-                className={'transition-all duration-700 ' + quoteAnimation}
+                className={'transition-all duration-1000 ' + quoteAnimation}
               >
                 {data.welcomeQuote}
               </div>
@@ -92,7 +92,7 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
                   cornerRadius={[10, 10, 10, 10]}
                   borderColor='white'
                   borderWidth={0}
-                  tailwindClass='text-2xl font-bold hover:scale-105 transition-all duration-500'
+                  tailwindClass='text-2xl font-bold hover:scale-105 transition-all duration-1000 '
                   onClick={() => { }}
                 />
                 <Button
@@ -106,7 +106,7 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
                   cornerRadius={[10, 10, 10, 10]}
                   borderColor='white'
                   borderWidth={2}
-                  tailwindClass='text-xl font-bold transition-all duration-500 ml-[2px]'
+                  tailwindClass='text-xl font-bold transition-all duration-1000 ml-[2px]'
                   onClick={() => { }}
                 />
               </div>
@@ -150,7 +150,7 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
 
         <div
           ref={quoteref}
-          className={'pt-8  text-xl screen545:text-2xl font-caprasimo text-white top-80 flex flex-col  screen545:pt-14 px-5 text-center screen545:text-left transition-all duration-700' + quoteAnimation}>
+          className={'pt-8  text-xl screen545:text-2xl font-caprasimo text-white top-80 flex flex-col  screen545:pt-14 px-5 text-center screen545:text-left transition-all duration-1000' + quoteAnimation}>
           {data.welcomeQuote}
         </div>
         <div className='pt-10 flex flex-col space-y-4 font-sans items-center screen545:items-start pl-5'>
@@ -163,7 +163,7 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
             cornerRadius={[10, 10, 10, 10]}
             borderColor='white'
             borderWidth={0}
-            tailwindClass='text-xl font-bold hover:scale-105 transition-all duration-500'
+            tailwindClass='text-xl font-bold hover:scale-105 transition-all duration-1000'
             onClick={() => { }}
           />
           <Button
@@ -177,7 +177,7 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
             cornerRadius={[10, 10, 10, 10]}
             borderColor='white'
             borderWidth={2}
-            tailwindClass='text-lg font-bold transition-all duration-500 ml-[2px]'
+            tailwindClass='text-lg font-bold transition-all duration-1000 ml-[2px]'
             onClick={() => { }}
           />
         </div>
