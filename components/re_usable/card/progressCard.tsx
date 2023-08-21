@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react'
 import ProgressBar from '../progress/progress_bar';
+import { cn } from '@lib/utils';
 
 interface ProgressCardProp {
   dataMap: Map<string, number>;
@@ -35,12 +36,13 @@ const ProgressCard: React.FC<ProgressCardProp> = ({
   const gridWidth = 100 / cols
   return (
     <div
-     className=' w-full h-fit flex items-center justify-center pt-10 ' 
-    style={{
-      backgroundColor: bgColor,
-      width: width,
-      height: height,
-    }}>
+      className={cn(' w-full h-fit flex items-center justify-center pt-10 ',
+        classTW)}
+      style={{
+        backgroundColor: bgColor,
+        width: width,
+        height: height,
+      }}>
       <div
         className='w-full px-[10%] h-fit '
         style={{
@@ -60,7 +62,7 @@ const ProgressCard: React.FC<ProgressCardProp> = ({
               height: 'fit',
               width: '100%',
             }}>
-            <div className='text-2xl '
+            <div className=' '
               style={{
                 width: '100%',
               }}>

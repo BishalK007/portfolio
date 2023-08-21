@@ -33,7 +33,7 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
   const skillCardDataMap = new Map<string, number>()
   data.skills.forEach((element) => {
     skillCardDataMap.set(element.name, element.progress);
-    console.log( element.name + element.progress + typeof element.progress)
+    // console.log( element.name + element.progress + typeof element.progress)
   })
   // skillCardDataMap.set('hello',10);
   // skillCardDataMap.set('hello1',10);
@@ -55,7 +55,7 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
          /* */}
       <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl'>About<span className='text-green-500'> Me</span></div>
       <div className="w-full">
-        <div className="flex flex-col screen545:flex-row   h-fit">
+        <div className="flex flex-col sm:flex-row   h-fit">
           {/* */
            /*__________________________ Personal Details  ______________________ */
            /* */}
@@ -84,7 +84,7 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
            /*__________________________ Skills  ______________________ */
            /* */}
           <div className="flex flex-col pt-20 font-bricolage_grotesque w-full justify-between screen545:pl-10">
-            <div className="pl-5">
+            <div className="sm:pl-5">
             <UnderlineText
               underLineHeight={2}
               children={'Skills -'}
@@ -94,7 +94,7 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
             />
             </div>
             <div
-              className='mt-10'
+              className=''
               style={{
                 width: windowWidth <= 1040 ? '100% ' : '40vw', height: 600
               }}>
@@ -102,6 +102,9 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
                 dataMap={skillCardDataMap}
                 width={windowWidth <= 1040 ? '100% ' : '40vw'}
                 bgColor='transparent'
+                cols={windowWidth <= 1040 ? 1 : 2}
+                gap={30}
+                classTW='text-xl'
               />
             </div>
           </div>
