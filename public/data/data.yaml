@@ -17,3 +17,35 @@ aboutMe:
   mail: bishal123official@gmail.com
   languages: ["English", "Hindi", "Bengali"]
 
+skills:
+  - 
+    name: NextJS
+    progress: 70 
+  - 
+    name: Flutter
+    progress: 80 
+  - 
+    name: Kubernetes
+    progress: 65 
+  - 
+    name: MongoDB
+    progress: 65 
+  - 
+    name: NodeJS
+    progress: 65
+
+
+
+programming_languages:
+  - 
+    name: C++
+    progress: 85 
+  -
+    name: Python
+    progress: 75
+  -
+    name: JavaScript/Typescript
+    progress: 75
+  -
+    name: Dart
+    progress: 75

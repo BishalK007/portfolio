@@ -18,6 +18,14 @@ interface Data {
       city: string
       mail: string
       languages: string[]
-    }
+    };
+    skills: {
+      name: string
+      progress: number
+    }[];
+    programming_languages: {
+      name: string
+      progress: number
+    }[];
   }
   
