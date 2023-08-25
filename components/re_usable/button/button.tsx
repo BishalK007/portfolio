@@ -52,7 +52,7 @@ const Button: React.FC<ButtonProps> = ({
       backDropRef.current.style.transform = `translate(0,0)`
       // setBackDropTranslateCSS(`translate(0,0)`);
     }
-  }, [inView]);
+  }, [inView, backDropTranslate]);
 
   return (
     <div className={tailwindClass + " relative"}

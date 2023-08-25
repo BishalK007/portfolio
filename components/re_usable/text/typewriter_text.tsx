@@ -37,7 +37,7 @@ const Typewriter: React.FC<TypewriterProps> = ({
     }, typingSpeed);
 
     return () => clearTimeout(timeout);
-  }, [displayedText, isDeleting]);
+  }, [displayedText, isDeleting, currentTextIndex, text1, text2, typingSpeed]);
 
   return (
     <span

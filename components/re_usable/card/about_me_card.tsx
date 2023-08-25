@@ -40,7 +40,7 @@ const AboutMeCard: React.FC<AboutMeCardProps> = ({
         if(showAnimation && !inview && backDropRef.current ){
             backDropRef.current.style.transform = `translate(0,0)`     
         }
-    }, [inview])
+    }, [inview, backdropTranslate])
 
     return (
         <div

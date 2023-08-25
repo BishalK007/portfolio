@@ -8,7 +8,7 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
   const [windowWidth, setWindowWidth] = useState(0)
   const [windowHeight, setWindowHeight] = useState(0)
   useEffect(() => {
-    console.log(data.skills.length)
+    // console.log(data.skills.length)
     setWindowHeight(window.innerHeight);
     setWindowWidth(window.innerWidth);
     const handleResize = () => {
@@ -62,11 +62,13 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
           <div className="flex flex-col pt-20 font-bricolage_grotesque w-full">
             <UnderlineText
               underLineHeight={2}
-              children={'Personal Details -'}
               classTW='text-2xl xsm:text-3xl sm:text-4xl'
               color='var(--green-500)'
               spacing={10}
-            />
+            >
+              {'Personal Details -'}
+            </UnderlineText>
+
 
             <AboutMeCard
               dataMap={aboutMeDataMap}
@@ -85,13 +87,15 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
            /* */}
           <div className="flex flex-col pt-20 font-bricolage_grotesque w-full justify-between screen545:pl-10">
             <div className="sm:pl-5">
-            <UnderlineText
-              underLineHeight={2}
-              children={'Skills -'}
-              classTW='text-2xl xsm:text-3xl sm:text-4xl '
-              color='var(--green-500)'
-              spacing={10}
-            />
+              <UnderlineText
+                underLineHeight={2}
+                
+                classTW='text-2xl xsm:text-3xl sm:text-4xl '
+                color='var(--green-500)'
+                spacing={10}
+              >
+                {'Skills -'}
+              </UnderlineText>
             </div>
             <div
               className=''

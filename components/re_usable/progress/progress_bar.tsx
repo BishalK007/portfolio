@@ -45,7 +45,7 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
       // console.log('bye')
     }
 
-  }, [inView])
+  }, [inView, progressValue, showAnimation, width])
 
 
 
