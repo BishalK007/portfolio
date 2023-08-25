@@ -48,7 +48,7 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
                         <ExperienceCard
                         height={400}
                         // width={windowWidth > 1040 ? 1000 : '100%'}
-                        data={workDataArray[0]}
+                        data={item}
                         dropColor='var(--green-500)'
                         backdropTranslate={[10, 10]}
                         classTW=''
