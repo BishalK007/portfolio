@@ -44,7 +44,7 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
             <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl'>My<span className='text-green-500'> Experience</span></div>
             <div className="pt-16" >
                 {workDataArray.map((item, index) => (
-                    <div className="py-5">
+                    <div className="py-5" key={index}>
                         <ExperienceCard
                         height={400}
                         // width={windowWidth > 1040 ? 1000 : '100%'}
