@@ -33,6 +33,9 @@ skills:
   - 
     name: NodeJS
     progress: 65
+  - 
+    name: Docker
+    progress: 40
 
 
 
@@ -41,11 +44,46 @@ programming_languages:
     name: C++
     progress: 85 
   -
-    name: Python
-    progress: 75
-  -
-    name: JavaScript/Typescript
+    name: Typescript
     progress: 75
   -
     name: Dart
     progress: 75
+
+experience:
+  - 
+    company: ProjectX
+    image: /assets/company_images/project_x_logo_.png
+    role: AVP of Engineering
+    time: 2023 - Present
+    work:
+      -     
+        "Led the development of a corporate portal using Next.js, enabling seamless product integration." 
+      -
+        "Contributed to the enhancement of the core product by employing containerized Docker images." 
+      -
+        "Conducted preliminary testing of images on Kubernetes within the AWS environment." 
+  # - 
+  #   company: ProjectX
+  #   image: /assets/company_images/project_x_logo_.png
+  #   role: AVP of Engineering
+  #   time: 2023 - Present
+  #   work:
+  #     -     
+  #       "Led the development of a corporate portal using Next.js, enabling seamless product integration." 
+  #     -
+  #       "Contributed to the enhancement of the core product by employing containerized Docker images." 
+  #     -
+  #       "Conducted preliminary testing of images on Kubernetes within the AWS environment." 
+  # - 
+  #   company: ProjectX
+  #   image: /assets/company_images/project_x_logo_.png
+  #   role: AVP of Engineering
+  #   time: 2023 - Present
+  #   work:
+  #     -     
+  #       "Led the development of a corporate portal using Next.js, enabling seamless product integration." 
+  #     -
+  #       "Contributed to the enhancement of the core product by employing containerized Docker images." 
+  #     -
+  #       "Conducted preliminary testing of images on Kubernetes within the AWS environment." 

@@ -35,6 +35,11 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
     skillCardDataMap.set(element.name, element.progress);
     // console.log( element.name + element.progress + typeof element.progress)
   })
+  const languageDataMap = new Map<string, number>()
+  data.programming_languages.forEach((element) => {
+    languageDataMap.set(element.name, element.progress);
+    // console.log( element.name + element.progress + typeof element.progress)
+  })
   // skillCardDataMap.set('hello',10);
   // skillCardDataMap.set('hello1',10);
   // skillCardDataMap.set('hello2',10);
@@ -49,17 +54,17 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
     return <></>
   }
   return (
-    <div className='text-white px-10 md:px-20 pt-24 '>
+    <div className='text-white px-10 md:px-20 pt-24 min-h-[900px] '>
       {/* */
          /*__________________________ About ME  ______________________ */
          /* */}
       <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl'>About<span className='text-green-500'> Me</span></div>
       <div className="w-full">
-        <div className="flex flex-col sm:flex-row   h-fit">
+        <div className="flex flex-col screen1040:flex-row   h-fit">
           {/* */
            /*__________________________ Personal Details  ______________________ */
            /* */}
-          <div className="flex flex-col pt-20 font-bricolage_grotesque w-full">
+          <div className="flex flex-col pt-20 font-bricolage_grotesque w-full ">
             <UnderlineText
               underLineHeight={2}
               classTW='text-2xl xsm:text-3xl sm:text-4xl'
@@ -82,15 +87,16 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
               classTW='pt-20  text-md sm:text-lg screen900:text-xl  screen1040:text-lg xl:text-xl'
             />
           </div>
-          {/* */
+          <div className="flex flex-col">
+            {/* */
            /*__________________________ Skills  ______________________ */
            /* */}
-          <div className="flex flex-col pt-20 font-bricolage_grotesque w-full justify-between screen545:pl-10">
-            <div className="sm:pl-5">
+          <div className="flex flex-col pt-20 font-bricolage_grotesque w-full justify-between screen545:pl-10  max-h-fit">
+            <div className="sm:pl-5 ">
               <UnderlineText
                 underLineHeight={2}
                 
-                classTW='text-2xl xsm:text-3xl sm:text-4xl '
+                classTW='text-2xl xsm:text-3xl sm:text-4xl  '
                 color='var(--green-500)'
                 spacing={10}
               >
@@ -100,7 +106,7 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
             <div
               className=''
               style={{
-                width: windowWidth <= 1040 ? '100% ' : '40vw', height: 600
+                width: windowWidth <= 1040 ? '100% ' : '40vw', height: 'fit-content'
               }}>
               <ProgressCard
                 dataMap={skillCardDataMap}
@@ -111,6 +117,36 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
                 classTW='text-xl'
               />
             </div>
+          </div>{/* */
+           /*__________________________ Languages  ______________________ */
+           /* */}
+          <div className="flex flex-col pt-20 font-bricolage_grotesque w-full justify-between screen545:pl-10">
+            <div className="sm:pl-5">
+              <UnderlineText
+                underLineHeight={2}
+                
+                classTW='text-2xl xsm:text-3xl sm:text-4xl '
+                color='var(--green-500)'
+                spacing={10}
+              >
+                {'Languages -'}
+              </UnderlineText>
+            </div>
+            <div
+              className=''
+              style={{
+                width: windowWidth <= 1040 ? '100% ' : '40vw', height: 'fit-content'
+              }}>
+              <ProgressCard
+                dataMap={languageDataMap}
+                width={windowWidth <= 1040 ? '100% ' : '40vw'}
+                bgColor='transparent'
+                cols={windowWidth <= 1040 ? 1 : 2}
+                gap={30}
+                classTW='text-xl'
+              />
+            </div>
+          </div>
           </div>
         </div>
       </div>
@@ -120,3 +156,34 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
 }
 
 export default AboutMe
+
+// {/* */
+//            /*__________________________ Skills  ______________________ */
+//            /* */}
+//            <div className="flex flex-col pt-20 font-bricolage_grotesque w-full justify-between screen545:pl-10">
+//            <div className="sm:pl-5">
+//              <UnderlineText
+//                underLineHeight={2}
+               
+//                classTW='text-2xl xsm:text-3xl sm:text-4xl '
+//                color='var(--green-500)'
+//                spacing={10}
+//              >
+//                {'Skills -'}
+//              </UnderlineText>
+//            </div>
+//            <div
+//              className=''
+//              style={{
+//                width: windowWidth <= 1040 ? '100% ' : '40vw', height: 600
+//              }}>
+//              <ProgressCard
+//                dataMap={skillCardDataMap}
+//                width={windowWidth <= 1040 ? '100% ' : '40vw'}
+//                bgColor='transparent'
+//                cols={windowWidth <= 1040 ? 1 : 2}
+//                gap={30}
+//                classTW='text-xl'
+//              />
+//            </div>
+//          </div>

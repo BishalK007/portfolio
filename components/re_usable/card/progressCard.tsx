@@ -48,7 +48,7 @@ const ProgressCard: React.FC<ProgressCardProp> = ({
         style={{
           display: 'grid',
           gridTemplateColumns: `repeat(${cols}, calc(${gridWidth}% - ${gap / 2}px))`, // Adjusted here
-          gap: `${gap}px 10px`,
+          gap: `${gap}px `,
         }}>
         {/* {
           Array.from({length: 50 }, (_, index) => (

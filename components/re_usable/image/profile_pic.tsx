@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
+import Image from 'next/image';
 
 interface ProfilePicProps {
   data: Data;
@@ -28,15 +29,12 @@ const ProfilePic: React.FC<ProfilePicProps> = ({ data, width = 100, height = 100
     >
       <div className={`h-full w-full bg-green-500 absolute transition-all duration-1000 ${animation}`}></div>
       <div className="h-full w-full bg-black profile-image absolute">
-        <img
+        <Image
           src={data.profileImage.src.sqBgRemoved}
           alt={data.profileImage.altText}
-          style={{
-            width,
-            height,
-            objectFit: 'cover',
-            objectPosition,
-          }}
+          layout="fill"
+          objectFit="cover"
+          objectPosition={objectPosition}
         />
       </div>
     </div>

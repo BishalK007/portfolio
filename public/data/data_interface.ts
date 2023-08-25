@@ -27,5 +27,12 @@ interface Data {
       name: string
       progress: number
     }[];
+    experience: {
+      company: string
+      image: string
+      role: string
+      time: string
+      work: string[]
+    }[];
   }
   
