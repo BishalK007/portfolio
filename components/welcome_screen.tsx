@@ -8,9 +8,31 @@ import Button from './re_usable/button/button'
 import { useInView } from 'react-intersection-observer';
 
 
-const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
-  const [welcomeHeight, setWelcomeHeight] = useState(0)
-  const [welcomeWidth, setWelcomeWidth] = useState(0)
+const WelcomeScreen: React.FC<{ 
+  data: Data , 
+  // windowWidth: number ,
+  // windowHeight: number,
+}> = ({ data }) => {
+  const [windowWidth, setWindowWidth] = useState(0);
+    const [windowHeight, setWindowHeight] = useState(0);
+
+    useEffect(() => {
+      setWindowHeight(window.innerHeight);
+      setWindowWidth(window.innerWidth);
+      
+        const handleResize = () => {
+          console.log(window.innerHeight, windowWidth);
+            setWindowHeight(window.innerHeight);
+            setWindowWidth(window.innerWidth);
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [windowWidth, ]);
+  
   const [quoteref, inView] = useInView({
     // triggerOnce: true, // Ensures the effect runs only once when component comes into view
   });
@@ -24,36 +46,26 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
       setquoteAnimation(' scale-[0.8] opacity-0 translate-y-5 ')
     }
   }, [inView]);
-  useEffect(() => {
-    setWelcomeHeight(window.innerHeight);
-    setWelcomeWidth(window.innerWidth);
-    const handleResize = () => {
-      setWelcomeHeight(window.innerHeight);
-      setWelcomeWidth(window.innerWidth);
-    };
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
 
   //_____________ Desktop View
-  if (welcomeWidth > 768) {
+  if (windowWidth > 768) {
     return (
       <div className="relative pt-20 h-[900px]">
         <div className='absolute flex flex-row justify-end w-full pr-20 '>
           <ProfilePic
             data={data}
-            width={welcomeWidth / 2 - 100}
+            width={windowWidth / 2 - 100}
             height={800}
+            backDropColor='var(--green-500)'
+            backDropTranslate={[15, 15]}
+            animationDuration={700}
             objectPosition='calc(50% + 50px) center'
           />
         </div>
         {/* */
          /*__________________________ Info  ______________________ */
          /* */}
-        <div className={'absolute flex flex-row justify-start pr-20 text-white text-6xl  pl-20 h-[800px] '} style={{ width: welcomeWidth / 2 + 20, }}>
+        <div className={'absolute flex flex-row justify-start pr-20 text-white text-6xl  pl-20 h-[800px] '} style={{ width: windowWidth / 2 + 20, }}>
           <div className="flex flex-col">
             <div className="w-fit pt-20 font-bricolage_grotesque flex flex-row relative">
               {/* */
@@ -118,14 +130,16 @@ const WelcomeScreen: React.FC<{ data: Data }> = ({ data }) => {
     )
   }
   //_____________Mobile View
-  else if (welcomeWidth > 0) {
+  else if (windowWidth > 0) {
     return (
       <div className='px-10'>
         <div className="flex flex-col screen545:flex-row  pt-16  items-center screen545:items-start">
           <ProfilePic
             data={data}
-            width={200}
-            height={200}
+            width={windowWidth > 545 ? 200 : windowWidth*0.8}
+            height={windowWidth > 545 ? 200 : windowWidth*0.8}
+            backDropColor='var(--green-500)'
+            animationDuration={700}
             objectPosition='center'
           />
           <div className="flex flex-col screen545:pl-[10vw]">

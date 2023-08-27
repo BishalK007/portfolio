@@ -14,6 +14,8 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
     const [windowHeight, setWindowHeight] = useState(0)
 
     useEffect(() => {
+        setWindowHeight(window.innerHeight);
+        setWindowWidth(window.innerWidth);
         const handleResize = () => {
             setWindowHeight(window.innerHeight);
             setWindowWidth(window.innerWidth);
