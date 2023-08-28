@@ -23,6 +23,6 @@
       "@*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "components/re_usable/card/ChangingProgressProvider.tsx"],
   "exclude": ["node_modules"]
 }

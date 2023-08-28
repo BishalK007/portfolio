@@ -75,17 +75,19 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
             </UnderlineText>
 
 
-            <AboutMeCard
-              dataMap={aboutMeDataMap}
-              cols={windowWidth <= 710 ? 1 : 2}
-              height={500}
-              width={windowWidth <= 1040 ? '100% ' : '40vw'}
-              dropColor='var(--green-500)'
-              gap={20}
-              backdropTranslate={[14, 14]}
-              animationDuration={700}
-              classTW='pt-20  text-md sm:text-lg screen900:text-xl  screen1040:text-lg xl:text-xl'
-            />
+            <div className=" h-full flex flex-col justify-center">
+              <AboutMeCard
+                dataMap={aboutMeDataMap}
+                cols={windowWidth <= 710 ? 1 : 2}
+                height={500}
+                width={windowWidth <= 1040 ? '100% ' : '40vw'}
+                dropColor='var(--green-500)'
+                gap={20}
+                backdropTranslate={[14, 14]}
+                animationDuration={700}
+                classTW='  text-md sm:text-lg screen900:text-xl  screen1040:text-lg xl:text-xl'
+              />
+            </div>
           </div>
           <div className="flex flex-col">
             {/* */
@@ -114,6 +116,7 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
                 bgColor='transparent'
                 cols={windowWidth <= 1040 ? 1 : 2}
                 gap={30}
+                progressType='linear'
                 classTW='text-xl'
               />
             </div>
@@ -141,8 +144,9 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
                 dataMap={languageDataMap}
                 width={windowWidth <= 1040 ? '100% ' : '40vw'}
                 bgColor='transparent'
-                cols={windowWidth <= 1040 ? 1 : 2}
+                cols={2}
                 gap={30}
+                progressType='circular'
                 classTW='text-xl'
               />
             </div>

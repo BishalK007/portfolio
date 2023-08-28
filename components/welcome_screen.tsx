@@ -21,7 +21,7 @@ const WelcomeScreen: React.FC<{
       setWindowWidth(window.innerWidth);
       
         const handleResize = () => {
-          console.log(window.innerHeight, windowWidth);
+          // console.log(window.innerHeight, windowWidth);
             setWindowHeight(window.innerHeight);
             setWindowWidth(window.innerWidth);
         };

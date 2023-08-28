@@ -1,6 +1,8 @@
 'use client'
 import React, { useEffect, useState } from 'react'
 import ExperienceCard from './re_usable/card/experience_card'
+import { CircularProgressbar } from 'react-circular-progressbar';
+import 'react-circular-progressbar/dist/styles.css';
 interface WorkData {
     companyName: string;
     designation: string;
@@ -8,7 +10,6 @@ interface WorkData {
     companyLogoUrl: string;
     workDone: string[];
 }
-
 const Experience: React.FC<{ data: Data }> = ({ data }) => {
     const [windowWidth, setWindowWidth] = useState(0)
     const [windowHeight, setWindowHeight] = useState(0)
