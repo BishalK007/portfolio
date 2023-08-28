@@ -6,12 +6,13 @@
 
 :root {
     --green-500: rgb(74 222 128);
+    --bg-color: #1e1e21;
     --secondary-color: #00ff00;
   }
 
 body {
     /* background-image: url('/assets/bg_gradient.jpg'); */
-    background-color: #1e1e21;
+    background-color: var(--bg-color);
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -20,7 +21,7 @@ body {
 }
 
 .profile-image {
-    background: linear-gradient(to Right, #1e1e21, white);
+    background: linear-gradient(to Right, var(--bg-color), white);
     
 }
 
