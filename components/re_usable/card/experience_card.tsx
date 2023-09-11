@@ -97,8 +97,8 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                             <Image
                                 src={data.companyLogoUrl}
                                 alt={data.companyName}
-                                layout="fill"
-                                objectFit="contain"
+                                fill={true}
+                                style={{objectFit: "cover"}}
                             />
                         </div>
                     </div>

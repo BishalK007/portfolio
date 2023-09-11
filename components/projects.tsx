@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import ExperienceCard from './re_usable/card/experience_card'
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
+import ProjectCard from './re_usable/card/project_card';
 interface WorkData {
     companyName: string;
     designation: string;
@@ -10,7 +11,7 @@ interface WorkData {
     companyLogoUrl: string;
     workDone: string[];
 }
-const Experience: React.FC<{ data: Data }> = ({ data }) => {
+const Projects: React.FC<{ data: Data }> = ({ data }) => {
     const [windowWidth, setWindowWidth] = useState(0)
     const [windowHeight, setWindowHeight] = useState(0)
 
@@ -43,27 +44,12 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
         return <></>
     }
     return (
-        <div className='text-white px-10 md:px-20 pt-24  '>
-            <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl'>My<span className='text-green-500'> Experience</span></div>
-            <div className="pt-16" >
-                {workDataArray.map((item, index) => (
-                    <div className="py-5" key={index}>
-                        <ExperienceCard
-                        animationDuration={700}
-                        height={400}
-                        // width={windowWidth > 1040 ? 1000 : '100%'}
-                        data={item}
-                        dropColor='var(--green-500)'
-                        backdropTranslate={[12, 12]}
-                        classTW=''
-                    />
-                    </div>
-                ))}
-
-            </div>
+        <div className='text-white px-10 md:px-20 pt-24 min-h-[900px] '>
+            <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl'>My<span className='text-green-500'> Projects</span></div>
+            <ProjectCard />
         </div>
     )
 }
 
-export default Experience
+export default Projects
 

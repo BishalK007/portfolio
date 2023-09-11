@@ -12,15 +12,15 @@ interface ProfilePicProps {
   animationDuration?: number;
 }
 
-const ProfilePic: React.FC<ProfilePicProps> = ({ 
-  data, 
-  width = 100, 
-  height = 100, 
+const ProfilePic: React.FC<ProfilePicProps> = ({
+  data,
+  width = 100,
+  height = 100,
   backDropTranslate = [10, 10],
   backDropColor = 'black',
   objectPosition = 'center',
-  animationDuration = 200, 
-  
+  animationDuration = 200,
+
 }) => {
   const [ref, inView] = useInView();
   const [animation, setAnimation] = useState('');
@@ -28,7 +28,7 @@ const ProfilePic: React.FC<ProfilePicProps> = ({
   useEffect(() => {
     if (inView && backDropRef.current) {
       backDropRef.current.style.transform = `translate(${backDropTranslate[0]}px, ${backDropTranslate[1]}px)`
-    } else if(backDropRef.current) {
+    } else if (backDropRef.current) {
       backDropRef.current.style.transform = `translate(0,0)`
       // setBackDropTranslateCSS(`translate(0,0)`);
     }
@@ -40,20 +40,20 @@ const ProfilePic: React.FC<ProfilePicProps> = ({
       className="bg-red-300 h-20 w-20 object-cover relative"
       style={{ width, height, maxWidth: 600 }}
     >
-      <div className={`h-full w-full bg-green-500 absolute transition-all duration-1000 ${animation}`} 
-      ref={backDropRef}
-      style={{
-        transform: `translate(${backDropTranslate[0]}px, ${backDropTranslate[1]}px)`,
-        backgroundColor: `${backDropColor}`,
-        transition: `transform ${animationDuration}ms`
-      }}></div>
+      <div className={`h-full w-full bg-green-500 absolute transition-all duration-1000 ${animation}`}
+        ref={backDropRef}
+        style={{
+          transform: `translate(${backDropTranslate[0]}px, ${backDropTranslate[1]}px)`,
+          backgroundColor: `${backDropColor}`,
+          transition: `transform ${animationDuration}ms`
+        }}></div>
       <div className="h-full w-full bg-black profile-image absolute">
         <Image
           src={data.profileImage.src.sqBgRemoved}
           alt={data.profileImage.altText}
-          layout="fill"
-          objectFit="cover"
-          objectPosition={objectPosition}
+          fill={true}
+          style={{objectFit: "cover", objectPosition: `${objectPosition}`}}
+      
         />
       </div>
     </div>
