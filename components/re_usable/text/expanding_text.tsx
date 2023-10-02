@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 
 interface ExpandingTextProps {
     text: string,
@@ -10,17 +10,36 @@ const ExpandingText: React.FC<ExpandingTextProps> = ({
     expandedHeight,
 }) => {
     const [expanded, setExpanded] = useState(false);
+    const containerRef = useRef<HTMLDivElement>(null);
 
-    const toggleExpand = () => {
+    const makeExpanded = () => {
+        if(containerRef.current && containerRef.current?.scrollHeight > containerRef.current?.clientHeight)
+            setExpanded(!expanded);
+    };
+    const makeRetracted = () => {
         setExpanded(!expanded);
     };
 
     if (expanded) {
         return (
-            <div onClick={toggleExpand} style={{ overflow: 'auto', maxHeight: `${expandedHeight}px` }}>
+            <div onClick={makeRetracted} style={{ overflow: 'auto', maxHeight: `${expandedHeight}px` }}>
                 <div className="" style={{
                     height: expandedHeight
                 }}>
+                    {text}
+                    {text}
+                    {text}
+                    {text}
+                    {text}
+                    {text}
+                    {text}
+                    {text}
+                    {text}
+                    {text}
+                    {text}
+                    {text}
+                    {text}
+                    {text}
                     {text}
                 </div>
             </div>
@@ -29,6 +48,7 @@ const ExpandingText: React.FC<ExpandingTextProps> = ({
     return (
         <div
             className={`overflow-hidden `}
+            ref={containerRef}
             style={{
                 display: '-webkit-box',
                 WebkitBoxOrient: 'vertical',
@@ -36,8 +56,26 @@ const ExpandingText: React.FC<ExpandingTextProps> = ({
                 textOverflow: 'ellipsis',
                 WebkitLineClamp: 2,
             }}
-            onClick={toggleExpand}
+            onClick={makeExpanded}
+            
         >
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
+            {text}
             {text}
         </div>
 

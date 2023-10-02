@@ -87,3 +87,40 @@ experience:
   #       "Contributed to the enhancement of the core product by employing containerized Docker images." 
   #     -
   #       "Conducted preliminary testing of images on Kubernetes within the AWS environment." 
+
+projects:
+  -
+    name: "Rhythm"
+    imgSrc: "/assets/project-assets/rhythm.png"
+    about: "Open-Source Music App and MP3 player for your entertainment"
+    tech: [
+      "flutter", 
+      "firebase",
+      
+    ]
+    url: "https://github.com/BishalK007/Rhythm"
+  -
+    name: "Rhythm"
+    imgSrc: "/assets/project-assets/rhythm.png"
+    about: "Open-Source Music App and MP3 player for your entertainment"
+    tech: ["flutter", "firebase"]
+    url: "https://github.com/BishalK007/Rhythm"
+  -
+    name: "Rhythm"
+    imgSrc: "/assets/project-assets/rhythm.png"
+    about: "Open-Source Music App and MP3 player for your entertainment"
+    tech: ["flutter", "firebase"]
+    url: "https://github.com/BishalK007/Rhythm"
+  -
+    name: "Rhythm"
+    imgSrc: "/assets/project-assets/rhythm.png"
+    about: "Open-Source Music App and MP3 player for your entertainment"
+    tech: ["flutter", "firebase"]
+    url: "https://github.com/BishalK007/Rhythm"
+  -
+    name: "Rhythm"
+    imgSrc: "/assets/project-assets/rhythm.png"
+    about: "Open-Source Music App and MP3 player for your entertainment"
+    tech: ["flutter", "firebase"]
+    url: "https://github.com/BishalK007/Rhythm"
+  

@@ -34,5 +34,12 @@ interface Data {
       time: string
       work: string[]
     }[];
+    projects: {
+      name: string;
+      imgSrc: string;
+      about: string;
+      tech: string[];
+      url: string;
+    }[]
   }
   

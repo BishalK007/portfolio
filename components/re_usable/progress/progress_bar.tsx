@@ -36,7 +36,6 @@ const ProgressBar: React.FC<ProgressBarProps> = ({
   const [ref, inView] = useInView()
   const progressRef = useRef<HTMLDivElement | null>(null)
   useEffect(() => {
-    setProgress(`calc(${width} * ${progressValue})`)
     if (showAnimation && inView && progressRef.current) {
       progressRef.current.style.width = `calc(${width} * ${progressValue})`
       // console.log('hi')

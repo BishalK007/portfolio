@@ -6,12 +6,21 @@ import { CSSProperties } from 'react';
 import IconLocal from '../icons/default_icon';
 import Link from 'next/link';
 import ExpandingText from '../text/expanding_text';
+interface ProjectData {
+    projectName: string;
+    aboutProject: string;
+    imgSrc: string;
+    url: string;
+    tech: string[];
+    // workDone: string[];
+}
+
 interface ProjectCardProps {
     cols?: number,
     gap?: number,
     largeHeight?: number,
     smallHeight?: number,
-    data: string[],
+    data: ProjectData[],
 }
 const ProjectCard: React.FC<ProjectCardProps> = ({
     cols = 3,
@@ -21,9 +30,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     smallHeight = 150,
 }) => {
 
+    // console.log(typeof data)
     const noOfElements = data.length;
     const rows = Math.ceil(noOfElements / cols);
-    console.log(rows)
+    // console.log(rows)
 
     const isCardLarge = (row: number, col: number, noOfRows: number, noOfCols: number) => {
         var flag;
@@ -40,6 +50,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
         return flag;
     }
 
+    const gridIndex = (rowIndex: number, colIndex: number, colNum: number) => {
+        console.log((rowIndex) * (colNum) + (colIndex + 1))
+        return ((rowIndex) * (colNum) + (colIndex + 1) - 1)
+        return 0
+    }
     return (
         <div className="pt-20">
             <div className="flex flex-row ">
@@ -60,6 +75,11 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                                             height={
                                                 (isCardLarge(rowIndex + 1, colIndex + 1, rows, cols) ? largeHeight : smallHeight)
                                             }
+                                            projectName={data[gridIndex(rowIndex, colIndex, cols)] == undefined ? "" : data[gridIndex(rowIndex, colIndex, cols)].projectName}
+                                            aboutProject={data[gridIndex(rowIndex, colIndex, cols)] == undefined ? "" : data[gridIndex(rowIndex, colIndex, cols)].aboutProject}
+                                            imgSrc={data[gridIndex(rowIndex, colIndex, cols)] == undefined ? "" : data[gridIndex(rowIndex, colIndex, cols)].imgSrc}
+                                            techStack={data[gridIndex(rowIndex, colIndex, cols)] == undefined ? [""] : data[gridIndex(rowIndex, colIndex, cols)].tech}
+                                            url={data[gridIndex(rowIndex, colIndex, cols)] == undefined ? "" : data[gridIndex(rowIndex, colIndex, cols)].url}
                                         />
                                     </div>
                                 ))}
@@ -84,6 +104,11 @@ interface cardItemProps {
     colNum: number,
     rowNum: number,
     height?: number,
+    projectName: string,
+    aboutProject: string,
+    imgSrc: string,
+    url: string,
+    techStack: string[],
 
 }
 export const CardItem: React.FC<cardItemProps> = ({
@@ -92,6 +117,11 @@ export const CardItem: React.FC<cardItemProps> = ({
     colNum,
     rowNum,
     height = 200,
+    projectName,
+    aboutProject,
+    imgSrc,
+    techStack,
+    url,
 }) => {
     const [isHovered, setIsHovered] = useState(false);
     const imageStyle: CSSProperties = {
@@ -107,11 +137,13 @@ export const CardItem: React.FC<cardItemProps> = ({
     const handleLeave = () => {
         setIsHovered(false);
     };
-
+    if (projectName == "") {
+        return <></>
+    }
     return (
-        <div className="border-2">
+        <div className="border-2" >
             <div className=" "
-                
+
                 onMouseEnter={handleHover}
                 onMouseLeave={handleLeave}
             >
@@ -129,26 +161,35 @@ export const CardItem: React.FC<cardItemProps> = ({
                         <div className="absolute z-30 h-fit w-full bg-gradient-to-b from-transparent to-black bottom-0">
                             <div className="text-white flex flex-col  h-full justify-end pb-5 px-5">
                                 <div className='text-2xl font-bold '>
-                                    Rhythm
+                                    {projectName}
                                 </div>
-                                <div className='flex flex-row'>
-                                    {/* BishalK007 / Rhythm */}
-                                    {/* <IconLocal
+                                {/* <div className='flex flex-row text-xl'>
+                                    BishalK007 / Rhythm
+                                    <IconLocal
                                         iconSrc='in_new_tab'
                                         bgColor='transparent'
                                         size={22}
                                         classTW='ml-2'
-                                    /> */}
+                                    />
+                                </div> */}
+                                <ExpandingText
+                                    expandedHeight={160}
+                                    text={aboutProject}
+                                />
+                                <div className="flex flex-wrap ">
+                                    {[...techStack].map((_, techStackIndex) => (
+                                        <div
+                                            key={techStackIndex}
+                                            className='px-1'
+                                            >
+                                            <IconLocal
+                                                iconSrc={techStack[techStackIndex]}
+                                                showIconText={true}
+                                                classTW='mt-2'
+                                            />
+                                        </div>
+                                    ))}
                                 </div>
-                                <ExpandingText 
-                                    expandedHeight={200}
-                                    text='Open-Source Music App and MP3 player for your entertainment'
-                                />
-                                <IconLocal
-                                    iconSrc='flutter'
-                                    showIconText={true}
-                                    classTW='mt-2'
-                                />
 
                             </div>
                         </div>
@@ -156,8 +197,8 @@ export const CardItem: React.FC<cardItemProps> = ({
                      /*__________________________ Middle div  ______________________ */
                      /* */}
                         <Link className="bg-black w-full h-full absolute z-20 opacity-40"
-                        target="_blank"
-                        href={"https://github.com/BishalK007/Rhythm"} />
+                            target="_blank"
+                            href={url} />
 
                         {/* */
                      /*__________________________ Background Image  ______________________ */
