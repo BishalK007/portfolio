@@ -46,7 +46,27 @@ const Projects: React.FC<{ data: Data }> = ({ data }) => {
     return (
         <div className='text-white px-10 md:px-20 pt-24 min-h-[900px] '>
             <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl'>My<span className='text-green-500'> Projects</span></div>
-            <ProjectCard />
+            <ProjectCard 
+                data = {Array.from({length: 10})}
+                cols={
+                    
+                    windowWidth > 1280 
+                    ?   3 
+                    :   windowWidth > 900 
+                        ? 2
+                        : 1 
+                }
+                largeHeight={
+                    windowWidth > 900 
+                    ? 500
+                    : 350
+                }
+                smallHeight={
+                    windowWidth > 900 
+                    ? 350
+                    : 350
+                }
+            />
         </div>
     )
 }
