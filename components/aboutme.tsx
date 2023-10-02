@@ -67,7 +67,7 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
           <div className="flex flex-col pt-20 font-bricolage_grotesque w-full ">
             <UnderlineText
               underLineHeight={2}
-              classTW='text-2xl xsm:text-3xl sm:text-4xl'
+              classTW='text-2xl xsm:text-3xl sm:text-4xl '
               color='var(--green-500)'
               spacing={10}
             >
@@ -85,7 +85,7 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
                 gap={20}
                 backdropTranslate={[14, 14]}
                 animationDuration={700}
-                classTW='  text-md sm:text-lg screen900:text-xl  screen1040:text-lg xl:text-xl'
+                classTW='pt-10 screen1040:pt-0  text-md sm:text-lg screen900:text-xl  screen1040:text-lg xl:text-xl'
               />
             </div>
           </div>
@@ -117,7 +117,7 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
                 cols={windowWidth <= 1040 ? 1 : 2}
                 gap={30}
                 progressType='linear'
-                classTW='text-xl'
+                classTW='text-xl '
               />
             </div>
           </div>{/* */

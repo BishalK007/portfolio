@@ -206,7 +206,7 @@ export const CardItem: React.FC<cardItemProps> = ({
                         <div className='h-full w-full ' style={{ position: 'absolute' }}>
                             <Image
                                 alt='alt'
-                                src={'/assets/project-assets/rythm.png'}
+                                src={imgSrc}
                                 style={{
                                     ...imageStyle,
                                     objectFit: "cover"
