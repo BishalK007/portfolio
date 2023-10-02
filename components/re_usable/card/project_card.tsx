@@ -65,9 +65,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                         }}>
                             <div className="flex flex-col ">
                                 {[...Array.from(Array(rows))].map((_, rowIndex) => (
-                                    <div className="py-2">
+                                    <div className="py-2" key={rowIndex}>
                                         <CardItem
-                                            key={rowIndex} // Add a unique key for each CardItem
+                                             // Add a unique key for each CardItem
                                             rowIndex={rowIndex}
                                             colIndex={colIndex}
                                             colNum={cols}
