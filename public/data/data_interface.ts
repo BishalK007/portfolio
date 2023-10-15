@@ -18,6 +18,9 @@ interface Data {
       city: string
       mail: string
       languages: string[]
+      githubLink: string
+      linkdinLink: string
+      instagramLink:string
     };
     skills: {
       name: string
@@ -40,6 +43,7 @@ interface Data {
       about: string;
       tech: string[];
       url: string;
-    }[]
+    }[];
+    'get-contact': string[]
   }
   

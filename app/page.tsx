@@ -6,6 +6,7 @@ import WelcomeScreen from '@/components/welcome_screen';
 import AboutMe from '@components/aboutme';
 import Experience from '@components/experience';
 import Projects from '@components/projects';
+import GetContact from '@components/get-contact';
 
 
 
@@ -25,6 +26,9 @@ const page = () => {
         data={data}
       />
       <Projects 
+        data={data}
+      />
+      <GetContact 
         data={data}
       />
       <div className="h-[3000px] ">

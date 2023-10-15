@@ -16,6 +16,9 @@ aboutMe:
   city: Kolkata
   mail: bishal123official@gmail.com
   languages: ["English", "Hindi", "Bengali"]
+  githubLink: https://github.com/BishalK007
+  linkdinLink: https://www.linkedin.com/in/bishal-123-karmakar/
+  instagramLink: https://www.instagram.com/bishalkmkr/
 
 skills:
   - 
@@ -100,11 +103,17 @@ projects:
     ]
     url: "https://github.com/BishalK007/Rhythm"
   -
-    name: "Rhythm"
+    name: "PromptBazar"
+    imgSrc: "/assets/project-assets/rhythm.png"
+    about: "Open-Source Music App and MP3 player for your entertainment"
+    tech: ["nextjs", "mongodb"]
+    url: "https://github.com/BishalK007/promptbazar"
+  -
+    name: "Dream-Tracker"
     imgSrc: "/assets/project-assets/rhythm.png"
     about: "Open-Source Music App and MP3 player for your entertainment"
     tech: ["flutter", "firebase"]
-    url: "https://github.com/BishalK007/Rhythm"
+    url: "https://github.com/BishalK007/Dream-Tracker"
   -
     name: "Rhythm"
     imgSrc: "/assets/project-assets/rhythm.png"
@@ -117,10 +126,11 @@ projects:
     about: "Open-Source Music App and MP3 player for your entertainment"
     tech: ["flutter", "firebase"]
     url: "https://github.com/BishalK007/Rhythm"
+
+get-contact:
   -
-    name: "Rhythm"
-    imgSrc: "/assets/project-assets/rhythm.png"
-    about: "Open-Source Music App and MP3 player for your entertainment"
-    tech: ["flutter", "firebase"]
-    url: "https://github.com/BishalK007/Rhythm"
-  
+    Let's talk business
+  -
+    Thinking about a new project, a problem to solve, or just want to connect? Let's do it!
+  -
+    Use the form on this page or get in touch by other means.

@@ -1,3 +1,4 @@
+'use client'
 import { fstat } from 'fs';
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';

@@ -190,7 +190,6 @@ export const CardItem: React.FC<cardItemProps> = ({
                                         </div>
                                     ))}
                                 </div>
-
                             </div>
                         </div>
                         {/* */
