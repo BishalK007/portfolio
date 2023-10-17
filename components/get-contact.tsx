@@ -56,7 +56,7 @@ const GetContact: React.FC<{ data: Data }> = ({ data }) => {
     }
 
     return (
-        <div className='text-white  md:px-20 mt-24 py-10 ' >
+        <div className='text-white  md:px-20 mt-24 pb-[2px] md:py-10 ' >
             <div className='font-caprasimo text-3xl xsm:text-5xl sm:text-6xl pb-10 mx-10'>Get in<span className='text-green-500'> Touch </span></div>
             <div className="flex flex-col screen900:flex-row w-full" style={{
                 backgroundColor: 'var(--bg-color-dark)',

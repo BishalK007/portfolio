@@ -24,7 +24,7 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
     const options = {
       root: null, // Use the viewport as the root
       rootMargin: '0px',
-      threshold: 0.6, // When 60% of the element is visible
+      threshold: 0.4, // When 60% of the element is visible
     };
 
     const callback: IntersectionObserverCallback = (entries) => {
