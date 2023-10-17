@@ -56,7 +56,7 @@ const Projects: React.FC<{ data: Data }> = ({ data }) => {
         return <></>
     }
     return (
-        <div className='text-white px-10 md:px-20 pt-24 '>
+        <div className='text-white px-10 md:px-20 pt-24 ' >
             <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl pb-10'>My<span className='text-green-500'> Projects</span></div>
             {/* */
              /*__________________________ Contracting Container  ______________________ */

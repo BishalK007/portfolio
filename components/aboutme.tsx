@@ -44,7 +44,7 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
     return <></>
   }
   return (
-    <div className='text-white px-10 md:px-20 pt-24 min-h-[900px] scale-90 screen545:scale-100 '>
+    <div className='text-white px-10 md:px-20 pt-24 min-h-[900px] scale-90 screen545:scale-100 ' >
       {/* */
          /*__________________________ About ME  ______________________ */
          /* */}

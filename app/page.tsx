@@ -1,3 +1,4 @@
+
 import React from 'react'
 import * as yaml from 'js-yaml';
 import * as fs from 'fs';
@@ -8,6 +9,8 @@ import Experience from '@components/experience';
 import Projects from '@components/projects';
 import GetContact from '@components/get-contact';
 import Footer from '@components/footer';
+import Nav from '@components/nav';
+import GlobalWrapper from '@components/global-wrapper';
 
 
 
@@ -17,22 +20,7 @@ const page = () => {
   const data = yaml.load(fileContents) as Data;
   return (
     <div className="">
-      <WelcomeScreen
-        data={data}
-      />
-      <AboutMe
-        data={data}
-      />
-      <Experience
-        data={data}
-      />
-      <Projects 
-        data={data}
-      />
-      <GetContact 
-        data={data}
-      />
-      <Footer 
+      <GlobalWrapper
         data={data}
       />
     </div>

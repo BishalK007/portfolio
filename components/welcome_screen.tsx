@@ -50,7 +50,7 @@ const WelcomeScreen: React.FC<{
   //_____________ Desktop View
   if (windowWidth > 768) {
     return (
-      <div className="relative pt-20 h-[900px]">
+      <div className="relative pt-20 h-[900px]" >
         <div className='absolute flex flex-row justify-end w-full pr-20 '>
           <ProfilePic
             data={data}
@@ -132,7 +132,7 @@ const WelcomeScreen: React.FC<{
   //_____________Mobile View
   else if (windowWidth > 0) {
     return (
-      <div className='px-10'>
+      <div className='px-10' >
         <div className="flex flex-col screen545:flex-row  pt-16  items-center screen545:items-start">
           <ProfilePic
             data={data}

@@ -51,9 +51,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
     }
 
     const gridIndex = (rowIndex: number, colIndex: number, colNum: number) => {
-        console.log((rowIndex) * (colNum) + (colIndex + 1))
+        // console.log((rowIndex) * (colNum) + (colIndex + 1))
         return ((rowIndex) * (colNum) + (colIndex + 1) - 1)
-        return 0
     }
     return (
         <div className="pt-20">

@@ -1,9 +1,32 @@
+'use client'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import IconLocal from './re_usable/icons/default_icon'
 import MailLink from './re_usable/text/mail-link'
 
 const Footer: React.FC<{ data: Data }> = ({ data }) => {
+    const [windowWidth, setWindowWidth] = useState(0)
+    const [windowHeight, setWindowHeight] = useState(0)
+
+    useEffect(() => {
+
+        setWindowHeight(window.innerHeight);
+        setWindowWidth(window.innerWidth);
+        const handleResize = () => {
+            setWindowHeight(window.innerHeight);
+            setWindowWidth(window.innerWidth);
+        };
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, [windowWidth, windowHeight]);
+
+    if (windowWidth == 0) {
+        return <></>
+    }
+    
     return (
         <div className='bg-[var(--bg-color-dark)] py-8 w-full flex flex-col screen545:flex-row items-center px-10 md:px-20 space-y-3 justify-center'>
             <div className='text-white  w-[100%] screen545:w-[50%] px-2'>
