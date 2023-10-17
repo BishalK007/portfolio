@@ -169,22 +169,7 @@ const WelcomeScreen: React.FC<{
           {data.welcomeQuote}
         </div>
         <div className='pt-10 flex flex-col space-y-4 font-sans items-center screen545:items-start pl-5'>
-          <Button
-            height={50}
-            width={160}
-            text='Contact Me'
-            bgColor='white'
-            textColor='black'
-            borderColor='white'
-            borderWidth={0}
-            showBackDrop={true}
-            backDropTranslate={[8, 8]}
-            backDropColor='var(--green-500)'
-            hoverAnimation='backdrop-animation'
-            animationDuration={700}
-            tailwindClass='text-2xl font-bold '
-            onClick={() => { }}
-          />
+          
           <Button
             height={40}
             width={140}

@@ -50,8 +50,8 @@ const Nav: React.FC<{
   ];
 
   return (
-    <div className={navHeight + ' transition-all duration-1000  ease-in-out  bg-[var(--bg-color-dark)] bg-opacity-100 sticky top-0 z-50 text-white'}>
-      <div className="flex items-center justify-between px-10 h-full">
+    <div className={navHeight + ' transition-all duration-1000 px-6 md:px-10  ease-in-out  bg-[var(--bg-color-dark)] bg-opacity-100 sticky top-0 z-50 text-white'}>
+      <div className="flex items-center justify-between h-full">
         {/* Logo or Branding (if any) */}
         <div className=" text-xl font-bold " onClick={scrollToTop}>
           {"</> Bishal"}
@@ -63,6 +63,9 @@ const Nav: React.FC<{
         <nav className="space-x-4 hidden  md:flex flex-row ">
           {navItems.map((item) => (
             <ScrollLink
+              style={{
+                cursor: "pointer"
+              }}
               key={item.id}
               to={item.id}
               spy={true}
@@ -105,6 +108,9 @@ const Nav: React.FC<{
                       smooth={true}
                       offset={-70}
                       duration={500}
+                      style={{
+                        cursor: "pointer"
+                      }}
                       className={`hover:text-gray-300 ${currentSection === item.id && 'text-green-500'}`}
                       onClick={toggleMobileMenu} // Close mobile menu on item click
                     >
