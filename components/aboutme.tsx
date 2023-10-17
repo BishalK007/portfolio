@@ -40,21 +40,11 @@ const AboutMe: React.FC<{ data: Data }> = ({ data }) => {
     languageDataMap.set(element.name, element.progress);
     // console.log( element.name + element.progress + typeof element.progress)
   })
-  // skillCardDataMap.set('hello',10);
-  // skillCardDataMap.set('hello1',10);
-  // skillCardDataMap.set('hello2',10);
-  // skillCardDataMap.set('hello5',10);
-  // skillCardDataMap.set('hello6',10);
-  // skillCardDataMap.set('hello7',10);
-  // skillCardDataMap.set('hello8',10);
-  // skillCardDataMap.set('hello9',10);
-  // skillCardDataMap.set('hello10',10);
-  // console.log(skillCardDataMap)
   if (windowWidth == 0) {
     return <></>
   }
   return (
-    <div className='text-white px-10 md:px-20 pt-24 min-h-[900px] '>
+    <div className='text-white px-10 md:px-20 pt-24 min-h-[900px] scale-90 screen545:scale-100 '>
       {/* */
          /*__________________________ About ME  ______________________ */
          /* */}

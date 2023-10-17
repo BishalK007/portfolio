@@ -44,6 +44,6 @@ interface Data {
       tech: string[];
       url: string;
     }[];
-    'get-contact': string[]
+    'get-contact': string[];
   }
   

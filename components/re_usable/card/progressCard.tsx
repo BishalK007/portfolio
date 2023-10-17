@@ -69,7 +69,7 @@ const ProgressCard: React.FC<ProgressCardProp> = ({
             <div className='flex flex-col items-center w-full'>
               {progressType == 'circular' && (
                   <CircularProgress
-                    size={110}
+                    size={100}
                     progressValue={value / 100}
                     borderWidth={4}
                     progressColor='gray'

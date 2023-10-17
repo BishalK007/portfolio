@@ -5,6 +5,8 @@ import Button from './re_usable/button/button';
 import TelLink from './re_usable/text/tel-link';
 import MailLink from './re_usable/text/mail-link';
 import IconLocal from './re_usable/icons/default_icon';
+import Link from 'next/link';
+import Image from 'next/image';
 // import { Input } from "@/components/ui/input"
 
 
@@ -54,8 +56,8 @@ const GetContact: React.FC<{ data: Data }> = ({ data }) => {
     }
 
     return (
-        <div className='text-white px-10 md:px-20 mt-24 py-10 '>
-            <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl pb-10'>Get in<span className='text-green-500'> Touch </span></div>
+        <div className='text-white  md:px-20 mt-24 py-10 '>
+            <div className='font-caprasimo text-3xl xsm:text-5xl sm:text-6xl pb-10 mx-10'>Get in<span className='text-green-500'> Touch </span></div>
             <div className="flex flex-col screen900:flex-row w-full" style={{
                 backgroundColor: 'var(--bg-color-dark)',
                 // backgroundColor: 'green'
@@ -74,10 +76,10 @@ const GetContact: React.FC<{ data: Data }> = ({ data }) => {
                     <div className='text-lg screen545:text-xl pb-10'>
                         {data['get-contact'].at(2)}
                     </div>
-                    <div className="flex flex-row space-x-5">
-                        <div style={{ height: 30, width: 30 }}><IconLocal iconSrc='mail' size={30} /></div>
+                    <div className="flex flex-row space-x-5 items-center">
+                        <div style={{ height: 30, width: 30,}}><IconLocal iconSrc='mail-white' bgColor='transparent' size={30} /></div>
                         <div
-                            className='text-lg screen545:text-xl pb-10 '
+                            className='text-md screen545:text-xl my-5 '
                             style={{
                                 overflowWrap: 'anywhere', wordWrap: 'break-word'
                             }}
@@ -89,22 +91,43 @@ const GetContact: React.FC<{ data: Data }> = ({ data }) => {
                             />
                         </div>
                     </div>
-                    <div className="flex flex-row space-x-5">
-                        <div style={{ height: 30, width: 30 }}><IconLocal iconSrc='phone' size={30} /></div>
+                    <div className="flex flex-row space-x-5 items-center">
+                        <div style={{ height: 30, width: 30 }}><IconLocal iconSrc='phone-white' bgColor='transparent' size={30} /></div>
                         <div
-                            className='text-lg screen545:text-xl pb-10 '
+                            className='text-md screen545:text-xl my-5'
                             style={{
                                 overflowWrap: 'anywhere', wordWrap: 'break-word'
                             }}
                         >
-                            <MailLink
-                                email={data.aboutMe.phoneNo}
-                                subject={subjectFieldValue}
-                                body={bodyFieldValue}
+                            <TelLink
+                                phoneNumber={data.aboutMe.phoneNo}
+                                // subject={subjectFieldValue}
+                                // body={bodyFieldValue}
                             />
                         </div>
+                        
                     </div>
-
+                    <div className="flex flex-row space-x-5">
+                    <Link href={data.aboutMe.githubLink} target="_blank">
+                        <IconLocal
+                            iconSrc='github-white'
+                            bgColor='transparent'
+                        />
+                    </Link>
+                    <Link href={data.aboutMe.linkdinLink} target="_blank">
+                        <IconLocal
+                            iconSrc='linkdin-white'
+                            bgColor='transparent'
+                        />
+                    </Link>
+                    <Link href={data.aboutMe.instagramLink} target="_blank">
+                        <IconLocal
+                            iconSrc='instagram-white'
+                            bgColor='transparent'
+                        />
+                    </Link>
+                    
+                </div>
 
 
                     <div className='text-xl pb-10'>
