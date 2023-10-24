@@ -7,6 +7,8 @@ import Experience from './experience';
 import Projects from './projects';
 import GetContact from './get-contact';
 import Footer from './footer';
+import { ToastContainer} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
   const sectionRefs = {
@@ -20,7 +22,7 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
   const [currViewPortItem, setCurrViewPortItem] = useState('');
 
   useEffect(() => {
-    console.log(currViewPortItem)
+    // console.log(currViewPortItem)
     const options = {
       root: null, // Use the viewport as the root
       rootMargin: '0px',
@@ -69,6 +71,7 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
         <GetContact data={data} />
       </div>
       <Footer data={data} />
+      <ToastContainer />
     </div>
   );
 };

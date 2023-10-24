@@ -51,7 +51,7 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
         return <></>
     }
     return (
-        <div className='text-white px-10 md:px-20 pt-24  ' >
+        <div className='text-white px-10 md:px-20 pt-24 pb-20  h-fit' >
             <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl'>My<span className='text-green-500'> Experience</span></div>
             <div className="pt-16" style={
                 !showAllExperience
@@ -79,7 +79,7 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
 
                         <ExperienceCard
                             animationDuration={700}
-                            height={400}
+                            height={'fit'}
                             width={windowWidth > 1040 ? '90%' : '90%'}
                             data={item}
                             dropColor='var(--green-500)'

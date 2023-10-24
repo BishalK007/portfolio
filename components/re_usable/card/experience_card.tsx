@@ -64,8 +64,8 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             ref={cardRef}
             className={`relative flex justify-center items-center text-black ${classTW}`}
             style={{
-                height: cardHeight,
-                width: width,
+                height: 'fit-content',
+                // width: width,
             }}
         >
             {isBackDropVisible && (
@@ -76,12 +76,12 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                         transform: `translate(${backdropTranslate[0]}px, ${backdropTranslate[1]}px)`,
                         transition: `transform ${animationDuration}ms`,
                     }}
-                    className="h-full w-full absolute"
+                    className="h-[800px] w-full absolute"
                 ></div>
             )}
             <div
                 ref={frontRef}
-                className="absolute w-full h-fill flex items-center justify-center px-[10vw] py-6"
+                className="absolute w-full h-[800px] flex items-center justify-center px-[10vw] py-6"
                 style={{
                     backgroundColor: bgColor,
                 }}

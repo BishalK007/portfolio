@@ -6,9 +6,14 @@ import TelLink from './re_usable/text/tel-link';
 import MailLink from './re_usable/text/mail-link';
 import IconLocal from './re_usable/icons/default_icon';
 import Link from 'next/link';
-import Image from 'next/image';
-// import { Input } from "@/components/ui/input"
+import { toast } from 'react-toastify';
 
+interface data {
+    emailFieldValue: string
+    nameFieldValue: string
+    subjectFieldValue: string
+    bodyFieldValue: string
+}
 
 const GetContact: React.FC<{ data: Data }> = ({ data }) => {
     const [windowWidth, setWindowWidth] = useState(0)
@@ -19,7 +24,101 @@ const GetContact: React.FC<{ data: Data }> = ({ data }) => {
     const [subjectFieldValue, setSubjectFieldValue] = useState('')
     const [bodyFieldValue, setBodyFieldValue] = useState('')
 
+    const setFieldValues = (
+        email: string,
+        name: string,
+        subject: string,
+        body: string,
 
+    ) => {
+        setEmailFieldValue(email)
+        setNameFieldValue(name)
+        setBodyFieldValue(body)
+        setSubjectFieldValue(subject)
+    }
+
+    function isValidEmail(email: string) {
+        const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+        return emailRegex.test(email);
+    }
+    const callToast = (txt:string) => {
+        toast(txt, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+            });
+    }
+
+    const submitEmailJS = async (data: data) => {
+        console.log(data.nameFieldValue)
+        if (data.nameFieldValue == '') {
+            callToast('Please enter your name')
+            return;
+        }
+        if (!isValidEmail(data.emailFieldValue)) {
+            callToast('Enter Valid Mail')
+            return;
+        }
+        if (data.subjectFieldValue == '') {
+            callToast('Please enter the subject')
+            return;
+        }
+        if (data.bodyFieldValue == '') {
+            callToast('Tell me about Something')
+            return;
+        }
+        const emailPromise = new Promise(async (resolve, reject) => {
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    body: JSON.stringify({
+                        nameFieldValue: data.nameFieldValue,
+                        emailFieldValue: data.emailFieldValue,
+                        subjectFieldValue: data.subjectFieldValue,
+                        bodyFieldValue: data.bodyFieldValue,
+                    }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                if (response.ok) {
+                    resolve('Promise resolved 👌');
+                    setFieldValues('', '', '', '');
+
+                } else {
+                    reject('Promise rejected 🤯');
+                }
+            } catch (error) {
+                reject('An error occurred while sending email');
+            }
+
+        }
+        );
+        toast.promise(
+            emailPromise,
+            {
+                pending: 'Sending mail',
+                success: 'Mail Sent 👌',
+                error: 'Error Sending Mail 🤯'
+            }
+        );
+    };
+
+    // Add a handler to submit the form
+    const handleSubmit = () => {
+        // e.preventDefault();
+        submitEmailJS({
+            nameFieldValue,
+            emailFieldValue,
+            subjectFieldValue,
+            bodyFieldValue,
+        });
+    };
 
     useEffect(() => {
 
@@ -57,6 +156,7 @@ const GetContact: React.FC<{ data: Data }> = ({ data }) => {
 
     return (
         <div className='text-white  md:px-20 mt-24 pb-[2px] md:py-10 ' >
+
             <div className='font-caprasimo text-3xl xsm:text-5xl sm:text-6xl pb-10 mx-10'>Get in<span className='text-green-500'> Touch </span></div>
             <div className="flex flex-col screen900:flex-row w-full" style={{
                 backgroundColor: 'var(--bg-color-dark)',
@@ -77,7 +177,7 @@ const GetContact: React.FC<{ data: Data }> = ({ data }) => {
                         {data['get-contact'].at(2)}
                     </div>
                     <div className="flex flex-row space-x-5 items-center">
-                        <div style={{ height: 30, width: 30,}}><IconLocal iconSrc='mail-white' bgColor='transparent' size={30} /></div>
+                        <div style={{ height: 30, width: 30, }}><IconLocal iconSrc='mail-white' bgColor='transparent' size={30} /></div>
                         <div
                             className='text-md screen545:text-xl my-5 '
                             style={{
@@ -101,33 +201,33 @@ const GetContact: React.FC<{ data: Data }> = ({ data }) => {
                         >
                             <TelLink
                                 phoneNumber={data.aboutMe.phoneNo}
-                                // subject={subjectFieldValue}
-                                // body={bodyFieldValue}
+                            // subject={subjectFieldValue}
+                            // body={bodyFieldValue}
                             />
                         </div>
-                        
+
                     </div>
                     <div className="flex flex-row space-x-5">
-                    <Link href={data.aboutMe.githubLink} target="_blank">
-                        <IconLocal
-                            iconSrc='github-white'
-                            bgColor='transparent'
-                        />
-                    </Link>
-                    <Link href={data.aboutMe.linkdinLink} target="_blank">
-                        <IconLocal
-                            iconSrc='linkdin-white'
-                            bgColor='transparent'
-                        />
-                    </Link>
-                    <Link href={data.aboutMe.instagramLink} target="_blank">
-                        <IconLocal
-                            iconSrc='instagram-white'
-                            bgColor='transparent'
-                        />
-                    </Link>
-                    
-                </div>
+                        <Link href={data.aboutMe.githubLink} target="_blank">
+                            <IconLocal
+                                iconSrc='github-white'
+                                bgColor='transparent'
+                            />
+                        </Link>
+                        <Link href={data.aboutMe.linkdinLink} target="_blank">
+                            <IconLocal
+                                iconSrc='linkdin-white'
+                                bgColor='transparent'
+                            />
+                        </Link>
+                        <Link href={data.aboutMe.instagramLink} target="_blank">
+                            <IconLocal
+                                iconSrc='instagram-white'
+                                bgColor='transparent'
+                            />
+                        </Link>
+
+                    </div>
 
 
                     <div className='text-xl pb-10'>
@@ -195,7 +295,7 @@ const GetContact: React.FC<{ data: Data }> = ({ data }) => {
                             showBackDrop={true}
                             backDropTranslate={[5, 5]}
                             text={1 ? 'Submit' : 'Submitting..'}
-                            // onClick={() => { setshowAllProject(!showAllProject) }}
+                            onClick={handleSubmit}
                             hoverAnimation='backdrop-animation'
                             animationDuration={500}
                             tailwindClass='pt-10'
