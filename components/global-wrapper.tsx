@@ -18,7 +18,7 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
     projects: useRef<HTMLDivElement>(null),
     getcontact: useRef<HTMLDivElement>(null),
   };
-
+  
   const [currViewPortItem, setCurrViewPortItem] = useState('');
 
   useEffect(() => {

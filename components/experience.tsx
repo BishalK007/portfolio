@@ -22,12 +22,16 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
     useEffect(() => {
         if (experienceCardRef.current) {
             setExperienceCardHeight(experienceCardRef.current.offsetHeight )
+            console.log(experienceCardHeight)
         }
         setWindowHeight(window.innerHeight);
         setWindowWidth(window.innerWidth);
         const handleResize = () => {
             setWindowHeight(window.innerHeight);
             setWindowWidth(window.innerWidth);
+            if (experienceCardRef.current) {
+                setExperienceCardHeight(experienceCardRef.current.offsetHeight )
+            }
         };
         window.addEventListener('resize', handleResize);
 
@@ -51,15 +55,16 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
         return <></>
     }
     return (
-        <div className='text-white px-10 md:px-20 pt-24 pb-20  h-fit' >
-            <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl'>My<span className='text-green-500'> Experience</span></div>
-            <div className="pt-16" style={
+        <div className='text-white px-10 md:px-20 pt-24 pb-20  h-fit '  >
+            <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl '>My<span className='text-green-500'> Experience</span></div>
+            <div className="pt-16 "  style={
                 !showAllExperience
                     ? {
                         height: 
+                        // 'fit-content',
                         experienceCardHeight > 900 
-                            ? windowWidth > 900 ? 800 : 700
-                            : experienceCardHeight + 80,
+                            ? windowWidth > 900 ? 800: 700
+                            : `calc(${experienceCardHeight}px + 100px)`,
                         overflow:
                         experienceCardHeight > 900 
                             ? windowWidth > 900 ? 'scroll' : 'hidden'
@@ -68,22 +73,22 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
                         transition: 'height 0.5s ease',
                     }
                     : {
-                        height: experienceCardHeight + 20,
+                        height: `calc(${experienceCardHeight}px + 100px)` ,
                         overflow: 'clip',
                         transition: 'height 0.5s ease',
                     }
             }>
-                <div ref={experienceCardRef}>
+                <div ref={experienceCardRef} className=' h-fit'>
                 {workDataArray.map((item, index) => (
-                    <div className="py-5" key={index}>
+                    <div className="py-5 " key={index}>
 
                         <ExperienceCard
                             animationDuration={700}
-                            height={'fit'}
-                            width={windowWidth > 1040 ? '90%' : '90%'}
+                            height={600}
+                            width={windowWidth > 1040 ? '70%' : '100%'}
                             data={item}
                             dropColor='var(--green-500)'
-                            backdropTranslate={[12, 12]}
+                            backdropTranslate={[10, 10]}
                             classTW=''
                         />
 
@@ -94,7 +99,7 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
             </div>
             {experienceCardHeight > 900  &&
                 <div
-                className='flex flex-row justify-end'
+                className='flex flex-row justify-end '
             >
                 <Button
                     backDropColor='var(--green-500)'
@@ -103,7 +108,12 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
                     showBackDrop={true}
                     backDropTranslate={[5, 5]}
                     text={showAllExperience ? 'Show Less' : 'Show Full'}
-                    onClick={() => { setshowAllExperience(!showAllExperience) }}
+                    onClick={() => { 
+                        setshowAllExperience(!showAllExperience)
+                        if(experienceCardRef.current)
+                            setExperienceCardHeight(experienceCardRef.current.offsetHeight )
+                    
+                    }}
                     hoverAnimation='backdrop-animation'
                     animationDuration={500}
                     tailwindClass='pt-10'
