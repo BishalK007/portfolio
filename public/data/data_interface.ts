@@ -21,6 +21,7 @@ interface Data {
       githubLink: string
       linkdinLink: string
       instagramLink:string
+      cv: string
     };
     skills: {
       name: string

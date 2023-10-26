@@ -8,31 +8,31 @@ import Button from './re_usable/button/button'
 import { useInView } from 'react-intersection-observer';
 
 
-const WelcomeScreen: React.FC<{ 
-  data: Data , 
+const WelcomeScreen: React.FC<{
+  data: Data,
   // windowWidth: number ,
   // windowHeight: number,
 }> = ({ data }) => {
   const [windowWidth, setWindowWidth] = useState(0);
-    const [windowHeight, setWindowHeight] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(0);
 
-    useEffect(() => {
+  useEffect(() => {
+    setWindowHeight(window.innerHeight);
+    setWindowWidth(window.innerWidth);
+
+    const handleResize = () => {
+      // console.log(window.innerHeight, windowWidth);
       setWindowHeight(window.innerHeight);
       setWindowWidth(window.innerWidth);
-      
-        const handleResize = () => {
-          // console.log(window.innerHeight, windowWidth);
-            setWindowHeight(window.innerHeight);
-            setWindowWidth(window.innerWidth);
-        };
+    };
 
-        window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize);
 
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, [windowWidth, ]);
-  
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [windowWidth,]);
+
   const [quoteref, inView] = useInView({
     // triggerOnce: true, // Ensures the effect runs only once when component comes into view
   });
@@ -46,6 +46,12 @@ const WelcomeScreen: React.FC<{
       setquoteAnimation(' scale-[0.8] opacity-0 translate-y-5 ')
     }
   }, [inView]);
+  const scrollToContact = () => {
+    const getContactElement = document.querySelector('#get-contact');
+    if (getContactElement) {
+      getContactElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
 
   //_____________ Desktop View
   if (windowWidth > 768) {
@@ -109,19 +115,22 @@ const WelcomeScreen: React.FC<{
                   hoverAnimation='backdrop-animation'
                   animationDuration={700}
                   tailwindClass='text-2xl font-bold '
-                  onClick={() => { }}
+                  onClick={scrollToContact}
                 />
-                <Button
-                  height={50}
-                  width={140}
-                  text='Download CV'
-                  bgColor='transparent'
-                  textColor='white'
-                  borderColor='transparent'
-                  borderWidth={2}
-                  tailwindClass='text-xl font-bold ml-[2px]'
-                  onClick={() => { }}
-                />
+                <a href={data.aboutMe.cv} download>
+
+                  <Button
+                    height={50}
+                    width={140}
+                    text='Download CV'
+                    bgColor='transparent'
+                    textColor='white'
+                    borderColor='transparent'
+                    borderWidth={2}
+                    tailwindClass='text-xl font-bold ml-[2px]'
+                    onClick={() => { }}
+                  />
+                </a>
               </div>
             </div>
           </div>
@@ -136,8 +145,8 @@ const WelcomeScreen: React.FC<{
         <div className="flex flex-col screen545:flex-row  pt-16  items-center screen545:items-start">
           <ProfilePic
             data={data}
-            width={windowWidth > 545 ? 200 : windowWidth*0.8}
-            height={windowWidth > 545 ? 200 : windowWidth*0.8}
+            width={windowWidth > 545 ? 200 : windowWidth * 0.8}
+            height={windowWidth > 545 ? 200 : windowWidth * 0.8}
             backDropColor='var(--green-500)'
             animationDuration={700}
             objectPosition='calc(50% + 20px) top'
@@ -169,18 +178,35 @@ const WelcomeScreen: React.FC<{
           {data.welcomeQuote}
         </div>
         <div className='pt-10 flex flex-col space-y-4 font-sans items-center screen545:items-start pl-5'>
-          
           <Button
-            height={40}
-            width={140}
-            text='Download CV'
-            bgColor='transparent'
-            textColor='white'
-            borderColor='transparent'
-            borderWidth={2}
+            height={70}
+            width={220}
+            text='Contact Me'
+            bgColor='white'
+            textColor='black'
+            borderColor='white'
+            borderWidth={0}
+            showBackDrop={true}
+            backDropTranslate={[8, 8]}
+            backDropColor='var(--green-500)'
+            hoverAnimation='backdrop-animation'
+            animationDuration={700}
             tailwindClass='text-xl font-bold ml-[2px]'
-            onClick={() => { }}
+            onClick={scrollToContact}
           />
+          <a href={data.aboutMe.cv} download>
+            <Button
+              height={40}
+              width={140}
+              text='Download CV'
+              bgColor='transparent'
+              textColor='white'
+              borderColor='transparent'
+              borderWidth={2}
+              tailwindClass='text-xl font-bold ml-[2px]'
+              onClick={() => { }}
+            />
+          </a>
         </div>
       </div>
     )
