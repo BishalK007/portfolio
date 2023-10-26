@@ -94,12 +94,19 @@ const WelcomeScreen: React.FC<{
              /*__________________________ Quote  ______________________ */
              /* */}
             <div className={'text-2xl font-caprasimo  absolute top-80 flex flex-col '}>
+              {/* */
+               /*__________________________ Education  ______________________ */
+               /* */}
+              <div className='pb-5   text-green-500 font-borel'>
+                {data.aboutMe.education}
+              </div>
               <div
                 ref={quoteref}
                 className={'transition-all duration-1000 ' + quoteAnimation}
               >
                 {data.welcomeQuote}
               </div>
+              
               <div className='pt-10 flex flex-col space-y-4 font-sans'>
                 <Button
                   height={70}
@@ -177,6 +184,12 @@ const WelcomeScreen: React.FC<{
           className={'pt-8  text-xl screen545:text-2xl font-caprasimo text-white top-80 flex flex-col  screen545:pt-14 px-5 text-center screen545:text-left transition-all duration-1000' + quoteAnimation}>
           {data.welcomeQuote}
         </div>
+        {/* */
+            /*__________________________ Education  ______________________ */
+            /* */}
+          <div className='pt-5 text-green-500 font-borel text-2xl pl-5'>
+            {data.aboutMe.education}
+          </div>
         <div className='pt-10 flex flex-col space-y-4 font-sans items-center screen545:items-start pl-5'>
           <Button
             height={70}

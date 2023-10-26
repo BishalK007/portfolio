@@ -20,6 +20,7 @@ aboutMe:
   linkdinLink: https://www.linkedin.com/in/bishal-123-karmakar/
   instagramLink: https://www.instagram.com/bishalkmkr/
   cv: /assets/cv_bishal_karmakar.pdf
+  education: 2nd year, B.Tech Computer Science
 
 skills:
   - 
@@ -60,6 +61,15 @@ experience:
     image: /assets/company_images/project_x_logo_.png
     role: AVP of Engineering
     time: 2023 - Present
+    tech: 
+      - 
+        Docker
+      -
+        AWS
+      -
+        NextJS
+      -
+        Kubernetes
     work:
       -     
         "Led the development of a corporate portal using Next.js, enabling seamless product integration." 

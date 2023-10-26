@@ -22,6 +22,7 @@ interface Data {
       linkdinLink: string
       instagramLink:string
       cv: string
+      education: string
     };
     skills: {
       name: string
@@ -37,6 +38,7 @@ interface Data {
       role: string
       time: string
       work: string[]
+      tech: string[]
     }[];
     projects: {
       name: string;

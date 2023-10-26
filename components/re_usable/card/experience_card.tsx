@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 import Image from 'next/image';
+import IconLocal from '../icons/default_icon';
 
 interface WorkData {
     companyName: string;
@@ -9,6 +10,7 @@ interface WorkData {
     timeFrame: string;
     companyLogoUrl: string;
     workDone: string[];
+    techStack: string[]
 }
 
 interface ExperienceCardProps {
@@ -117,6 +119,24 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
                             </li>
                         ))}
                     </ul>
+                    {/* */
+                     /*__________________________ Tech Stack  ______________________ */
+                     /* */}
+                    <div className='text-gray-600 text-lg sm:text-xl'>Tech Worked on -</div>
+                    <div className="flex flex-wrap ">
+                        {[...data.techStack].map((_, techStackIndex) => (
+                            <div
+                                key={techStackIndex}
+                                className='px-1'
+                            >
+                                <IconLocal
+                                    iconSrc={data.techStack[techStackIndex].toLowerCase()}
+                                    showIconText={true}
+                                    classTW='mt-2'
+                                />
+                            </div>
+                        ))}
+                    </div>
                 </div>
             </div>
 

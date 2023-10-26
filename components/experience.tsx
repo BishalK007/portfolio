@@ -10,6 +10,7 @@ interface WorkData {
     timeFrame: string;
     companyLogoUrl: string;
     workDone: string[];
+    techStack: string[],
 }
 const Experience: React.FC<{ data: Data }> = ({ data }) => {
     const [windowWidth, setWindowWidth] = useState(0)
@@ -48,6 +49,7 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
             designation: element.role,
             timeFrame: element.time,
             workDone: element.work,
+            techStack: element.tech
         })
     })
 
