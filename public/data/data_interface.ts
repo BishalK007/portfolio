@@ -3,9 +3,9 @@ interface Data {
   designation: string;
     profileImage: {
       src: {
-        sq: string;
+        // sq: string;
         bgRemoved: string;
-        sqBgRemoved: string;
+        // sqBgRemoved: string;
       }
       altText: string;
     };

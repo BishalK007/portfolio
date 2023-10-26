@@ -2,9 +2,9 @@ name: 'Bishal Karmakar'
 designation: 'Software Developer'
 profileImage: 
   src: 
-    sq: '/assets/profile_pic_sq.png'
-    sqBgRemoved: '/assets/profile_pic_sq_bg_removed.png'
-    bgRemoved: '/assets/profile_pic_bg_removed.png'
+    # sq: '/assets/portfolio-pic.png'
+    # sqBgRemoved: '/assets/portfolio-pic.png'
+    bgRemoved: '/assets/profile-pic.png'
   altText: 'Profile Image'
 welcomeQuote: 'Welcome to my online home, where logic and imagination meet to create something truly amazing.'
 
@@ -104,28 +104,28 @@ projects:
     url: "https://github.com/BishalK007/Rhythm"
   -
     name: "PromptBazar"
-    imgSrc: "/assets/project-assets/rhythm.png"
-    about: "Open-Source Music App and MP3 player for your entertainment"
+    imgSrc: "/assets/project-assets/promptbazaar.jpg"
+    about: "Your AI prompt hub to discover and store AI prompts"
     tech: ["nextjs", "mongodb"]
     url: "https://github.com/BishalK007/promptbazar"
   -
     name: "Dream-Tracker"
-    imgSrc: "/assets/project-assets/rhythm.png"
-    about: "Open-Source Music App and MP3 player for your entertainment"
+    imgSrc: "/assets/project-assets/dream-tracker.png"
+    about: "Experience seamless financial management and personalized guidance with Dream Tracker, empowering you to achieve your goals, make smart investments, and embrace financial well-being."
     tech: ["flutter", "firebase"]
     url: "https://github.com/BishalK007/Dream-Tracker"
   -
-    name: "Rhythm"
-    imgSrc: "/assets/project-assets/rhythm.png"
-    about: "Open-Source Music App and MP3 player for your entertainment"
-    tech: ["flutter", "firebase"]
+    name: "Portfolio"
+    imgSrc: "/assets/project-assets/portfolio.jpg"
+    about: "My Online Home"
+    tech: ["nextjs"]
     url: "https://github.com/BishalK007/Rhythm"
-  -
-    name: "Rhythm"
-    imgSrc: "/assets/project-assets/rhythm.png"
-    about: "Open-Source Music App and MP3 player for your entertainment"
-    tech: ["flutter", "firebase"]
-    url: "https://github.com/BishalK007/Rhythm"
+  # -
+  #   name: "Rhythm"
+  #   imgSrc: "/assets/project-assets/rhythm.png"
+  #   about: "Open-Source Music App and MP3 player for your entertainment"
+  #   tech: ["flutter", "firebase"]
+  #   url: "https://github.com/BishalK007/Rhythm"
 
 get-contact:
   -

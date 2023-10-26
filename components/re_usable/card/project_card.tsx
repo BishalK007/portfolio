@@ -66,7 +66,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                                 {[...Array.from(Array(rows))].map((_, rowIndex) => (
                                     <div className="py-2" key={rowIndex}>
                                         <CardItem
-                                             // Add a unique key for each CardItem
+                                            // Add a unique key for each CardItem
                                             rowIndex={rowIndex}
                                             colIndex={colIndex}
                                             colNum={cols}
@@ -139,6 +139,7 @@ export const CardItem: React.FC<cardItemProps> = ({
     if (projectName == "") {
         return <></>
     }
+    // console.log('abt' + aboutProject)
     return (
         <div className="border-2" >
             <div className=" "
@@ -180,7 +181,7 @@ export const CardItem: React.FC<cardItemProps> = ({
                                         <div
                                             key={techStackIndex}
                                             className='px-1'
-                                            >
+                                        >
                                             <IconLocal
                                                 iconSrc={techStack[techStackIndex]}
                                                 showIconText={true}

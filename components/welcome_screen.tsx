@@ -59,7 +59,7 @@ const WelcomeScreen: React.FC<{
             backDropColor='var(--green-500)'
             backDropTranslate={[15, 15]}
             animationDuration={700}
-            objectPosition='calc(50% + 50px) center'
+            objectPosition='calc(50% + 50px) top'
           />
         </div>
         {/* */
@@ -140,7 +140,7 @@ const WelcomeScreen: React.FC<{
             height={windowWidth > 545 ? 200 : windowWidth*0.8}
             backDropColor='var(--green-500)'
             animationDuration={700}
-            objectPosition='center'
+            objectPosition='calc(50% + 20px) top'
           />
           <div className="flex flex-col screen545:pl-[10vw]">
             {/* */

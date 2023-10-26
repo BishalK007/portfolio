@@ -49,10 +49,13 @@ const ProfilePic: React.FC<ProfilePicProps> = ({
         }}></div>
       <div className="h-full w-full bg-black profile-image absolute">
         <Image
-          src={data.profileImage.src.sqBgRemoved}
+          src={data.profileImage.src.bgRemoved}
           alt={data.profileImage.altText}
           fill={true}
-          style={{objectFit: "cover", objectPosition: `${objectPosition}`}}
+          style={{objectFit: "cover", 
+          // height: "100%",
+          objectPosition: `${objectPosition}`
+        }}
       
         />
       </div>

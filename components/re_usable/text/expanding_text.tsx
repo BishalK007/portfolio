@@ -27,20 +27,6 @@ const ExpandingText: React.FC<ExpandingTextProps> = ({
                     height: expandedHeight
                 }}>
                     {text}
-                    {text}
-                    {text}
-                    {text}
-                    {text}
-                    {text}
-                    {text}
-                    {text}
-                    {text}
-                    {text}
-                    {text}
-                    {text}
-                    {text}
-                    {text}
-                    {text}
                 </div>
             </div>
         )
@@ -59,23 +45,6 @@ const ExpandingText: React.FC<ExpandingTextProps> = ({
             onClick={makeExpanded}
             
         >
-            {text}
-            {text}
-            {text}
-            {text}
-            {text}
-            {text}
-            {text}
-            {text}
-            {text}
-            {text}
-            {text}
-            {text}
-            {text}
-            {text}
-            {text}
-            {text}
-            {text}
             {text}
         </div>
 
