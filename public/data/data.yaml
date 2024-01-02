@@ -130,7 +130,7 @@ projects:
     imgSrc: "/assets/project-assets/portfolio.jpg"
     about: "My Online Home"
     tech: ["nextjs"]
-    url: "https://github.com/BishalK007/Rhythm"
+    url: "https://github.com/BishalK007/portfolio"
   # -
   #   name: "Rhythm"
   #   imgSrc: "/assets/project-assets/rhythm.png"
