@@ -187,7 +187,7 @@ const WelcomeScreen: React.FC<{
         {/* */
             /*__________________________ Education  ______________________ */
             /* */}
-          <div className='pt-5 text-green-500 font-borel text-2xl pl-5'>
+          <div className='pt-5 text-green-500 font-borel text-2xl pl-5 text-center screen545:text-left'>
             {data.aboutMe.education}
           </div>
         <div className='pt-10 flex flex-col space-y-4 font-sans items-center screen545:items-start pl-5'>
