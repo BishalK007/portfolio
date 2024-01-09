@@ -25,63 +25,65 @@ interface ProjectData {
     tech: string[];
 }
 
-interface ProjectCardProps {
+interface ProjectCardMobileProps {
     data: ProjectData[];
 }
 
-const ProjectCard: React.FC<ProjectCardProps> = ({
+const ProjectCardMobile: React.FC<ProjectCardMobileProps> = ({
     data,
 }) => {
-    // const dummyArray = Array.from({ length: data.length }, (_, i) => i + 1);
-
-    const evenIndexedArray = data.filter((_, i) => i % 2 === 0);
-    const oddIndexedArray = data.filter((_, i) => i % 2 !== 0);
-
     return (
-        <div>
-            <div style={{ overflowX: 'scroll', whiteSpace: 'nowrap' }}>
-                {evenIndexedArray.map((_, index) => (
-                    <div
-                        key={index}
-                        style={{
-                            width: '500px',
-                            marginRight: '10px',
-                            // backgroundColor: 'lightgrey',
-                            display: 'inline-block',
+        <div className='w-full '>
+            <Carousel
+                opts={{
+                    align: "center",
+                    loop: true,
+                }}
+                plugins={[
+                    Autoplay({
+                        delay: 3000,
+                        stopOnInteraction: true,
+                    })
+                ]}
+                className="w-[calc(100%-40px)] translate-x-[20px]"
+            >
+                <CarouselContent>
+                    {data.map((_, index) => (
+                        <CarouselItem
+                            key={index}
+                            style={{
+                                // width: '300px',
+                                marginRight: '10px',
+                                // backgroundColor: 'lightgrey',
+                                display: 'inline-block',
 
-                        }}
-                    >
-                        <div className='py-[10px]'>
-                            <CardItem
-                                height={
-                                    300
-                                }
-                                projectName={evenIndexedArray[index].projectName}
-                                aboutProject={evenIndexedArray[index].aboutProject}
-                                imgSrc={evenIndexedArray[index].imgSrc}
-                                techStack={evenIndexedArray[index].tech}
-                                url={evenIndexedArray[index].imgSrc}
-                            />
-                        </div>
-                        {oddIndexedArray[index] && <CardItem
-                            height={
-                                300
-                            }
-                            projectName={oddIndexedArray[index].projectName}
-                            aboutProject={oddIndexedArray[index].aboutProject}
-                            imgSrc={oddIndexedArray[index].imgSrc}
-                            techStack={oddIndexedArray[index].tech}
-                            url={oddIndexedArray[index].imgSrc}
-                        />}
-                    </div>
-                ))}
-            </div>
+                            }}
+                        >
+                            <div className='py-[10px]'>
+                                <CardItem
+                                    height={
+                                        550
+                                    }
+                                    projectName={data[index].projectName}
+                                    aboutProject={data[index].aboutProject}
+                                    imgSrc={data[index].imgSrc}
+                                    techStack={data[index].tech}
+                                    url={data[index].imgSrc}
+                                />
+                            </div>
+                        </CarouselItem>
+                    ))}
+                </CarouselContent>
+                    <CarouselPrevious />
+                <CarouselNext />
+            </Carousel>
+
         </div>
 
     );
 };
 
-export default ProjectCard;
+export default ProjectCardMobile;
 
 
 

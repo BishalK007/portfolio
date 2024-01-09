@@ -5,6 +5,7 @@ import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 import ProjectCard from './re_usable/card/project_card';
 import Button from './re_usable/button/button';
+import ProjectCardMobile from './re_usable/card/project_card_mobile';
 interface ProjectData {
     projectName: string;
     aboutProject: string;
@@ -58,49 +59,18 @@ const Projects: React.FC<{ data: Data }> = ({ data }) => {
     return (
         <div className='text-white px-10 md:px-20 pt-24 ' >
             <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl pb-10'>My<span className='text-green-500'> Projects</span></div>
+
             {/* */
              /*__________________________ Contracting Container  ______________________ */
              /* */}
-
-            <div
-                style={
-                    !showAllProject
-                        ? {
-                            // height: windowWidth > 900 ? 800 : 700,
-                            // overflowY: windowWidth > 900 ? 'scroll' : 'hidden',
-                            transition: 'height 0.5s ease',
-                            overflowX: 'scroll',
-                        }
-                        : {
-                            height: projectCardHeight,
-                            // overflowY: 'clip',
-                            transition: 'height 0.5s ease',
-                            overflowX: 'scroll',
-                        }
-                }>
-                <div ref={projectCardRef}>
-                    <ProjectCard
-                        // data = {Array.from({length: 10})}
-                        data={projectDataArray}
-                    />
-                </div>
-            </div>
-            <div
-                className='flex flex-row justify-end'
-            >
-                <Button
-                    backDropColor='var(--green-500)'
-                    height={60}
-                    width={140}
-                    showBackDrop={true}
-                    backDropTranslate={[5, 5]}
-                    text={showAllProject ? 'Show Less' : 'Show Full'}
-                    onClick={() => { setshowAllProject(!showAllProject) }}
-                    hoverAnimation='backdrop-animation'
-                    animationDuration={500}
-                    tailwindClass='pt-10'
-                />
-            </div>
+            {windowWidth > 625 && <ProjectCard
+                // data = {Array.from({length: 10})}
+                data={projectDataArray}
+            />}
+            {windowWidth <= 625 && <ProjectCardMobile
+                // data = {Array.from({length: 10})}
+                data={projectDataArray}
+            />}
         </div>
     )
 }
