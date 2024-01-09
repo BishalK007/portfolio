@@ -60,7 +60,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                                 aboutProject={evenIndexedArray[index].aboutProject}
                                 imgSrc={evenIndexedArray[index].imgSrc}
                                 techStack={evenIndexedArray[index].tech}
-                                url={evenIndexedArray[index].imgSrc}
+                                url={evenIndexedArray[index].url}
                             />
                         </div>
                         {oddIndexedArray[index] && <CardItem
