@@ -68,7 +68,7 @@ const ProjectCardMobile: React.FC<ProjectCardMobileProps> = ({
                                     aboutProject={data[index].aboutProject}
                                     imgSrc={data[index].imgSrc}
                                     techStack={data[index].tech}
-                                    url={data[index].imgSrc}
+                                    url={data[index].url}
                                 />
                             </div>
                         </CarouselItem>
