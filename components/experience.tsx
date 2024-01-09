@@ -23,7 +23,7 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
     useEffect(() => {
         if (experienceCardRef.current) {
             setExperienceCardHeight(experienceCardRef.current.offsetHeight )
-            console.log(experienceCardHeight)
+            // console.log(experienceCardHeight)
         }
         setWindowHeight(window.innerHeight);
         setWindowWidth(window.innerWidth);
@@ -39,7 +39,7 @@ const Experience: React.FC<{ data: Data }> = ({ data }) => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, [windowWidth, windowHeight]);
+    }, [windowWidth, windowHeight, experienceCardHeight]);
 
     let workDataArray: WorkData[] = [];
     data.experience.forEach((element) => {
