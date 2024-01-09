@@ -25,7 +25,7 @@ const Projects: React.FC<{ data: Data }> = ({ data }) => {
 
 
     useEffect(() => {
-        if(projectCardRef.current){
+        if (projectCardRef.current) {
             setProjectCardHeight(projectCardRef.current.offsetHeight)
         }
         setWindowHeight(window.innerHeight);
@@ -64,46 +64,29 @@ const Projects: React.FC<{ data: Data }> = ({ data }) => {
 
             <div
                 style={
-                    ! showAllProject
+                    !showAllProject
                         ? {
-                            height: windowWidth > 900 ? 800 : 700,
-                            overflow: windowWidth > 900 ? 'scroll' : 'hidden',
+                            // height: windowWidth > 900 ? 800 : 700,
+                            // overflowY: windowWidth > 900 ? 'scroll' : 'hidden',
                             transition: 'height 0.5s ease',
+                            overflowX: 'scroll',
                         }
                         : {
                             height: projectCardHeight,
-                            overflow: 'clip',
+                            // overflowY: 'clip',
                             transition: 'height 0.5s ease',
+                            overflowX: 'scroll',
                         }
                 }>
                 <div ref={projectCardRef}>
                     <ProjectCard
-
                         // data = {Array.from({length: 10})}
                         data={projectDataArray}
-                        cols={
-
-                            windowWidth > 1280
-                                ? 3
-                                : windowWidth > 900
-                                    ? 2
-                                    : 1
-                        }
-                        largeHeight={
-                            windowWidth > 900
-                                ? 500
-                                : 350
-                        }
-                        smallHeight={
-                            windowWidth > 900
-                                ? 350
-                                : 350
-                        }
                     />
                 </div>
             </div>
             <div
-            className='flex flex-row justify-end'
+                className='flex flex-row justify-end'
             >
                 <Button
                     backDropColor='var(--green-500)'

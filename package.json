@@ -14,8 +14,6 @@
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-progress": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
-    "@types/node": "20.5.0",
-    "@types/react": "18.2.20",
     "@types/react-dom": "18.2.7",
     "@types/styled-components": "^5.1.26",
     "alert": "^6.0.0",
@@ -28,7 +26,7 @@
     "lucide-react": "^0.268.0",
     "next": "^13.5.5",
     "ng-circle-progress": "^1.7.1",
-    "postcss": "8.4.27",
+    "postcss": "^8.4.33",
     "react": "18.2.0",
     "react-animated-progress-bar": "^1.1.2",
     "react-circle-progress-bar": "^0.1.4",
@@ -44,13 +42,15 @@
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "3.3.3",
     "tailwindcss-animate": "^1.0.7",
-    "typescript": "5.1.6",
     "xhr2": "^0.2.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/js-yaml": "^4.0.5",
+    "@types/node": "20.10.7",
+    "@types/react": "18.2.47",
     "@types/react-scroll": "^1.8.8",
-    "@types/tailwindcss": "^3.1.0"
+    "@types/tailwindcss": "^3.1.0",
+    "typescript": "5.3.3"
   }
 }

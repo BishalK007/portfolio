@@ -6,102 +6,75 @@ import { CSSProperties } from 'react';
 import IconLocal from '../icons/default_icon';
 import Link from 'next/link';
 import ExpandingText from '../text/expanding_text';
+// import React from 'react';
+
 interface ProjectData {
     projectName: string;
     aboutProject: string;
     imgSrc: string;
     url: string;
     tech: string[];
-    // workDone: string[];
 }
 
 interface ProjectCardProps {
-    cols?: number,
-    gap?: number,
-    largeHeight?: number,
-    smallHeight?: number,
-    data: ProjectData[],
+    data: ProjectData[];
 }
+
 const ProjectCard: React.FC<ProjectCardProps> = ({
-    cols = 3,
     data,
-    gap = 2,
-    largeHeight = 300,
-    smallHeight = 150,
 }) => {
+    // const dummyArray = Array.from({ length: data.length }, (_, i) => i + 1);
 
-    // console.log(typeof data)
-    const noOfElements = data.length;
-    const rows = Math.ceil(noOfElements / cols);
-    // console.log(rows)
+    const evenIndexedArray = data.filter((_, i) => i % 2 === 0);
+    const oddIndexedArray = data.filter((_, i) => i % 2 !== 0);
 
-    const isCardLarge = (row: number, col: number, noOfRows: number, noOfCols: number) => {
-        var flag;
-        if (row % 2 == 0)
-            (noOfRows % 2 == 1 && row == noOfRows)
-                ? flag = true
-                : (col % 2 == 0) ? flag = true : flag = false;
-        else
-            (noOfRows % 2 == 1 && row == noOfRows)
-                ? flag = true
-                : (col % 2 == 0) ? flag = false : flag = true;
-
-
-        return flag;
-    }
-
-    const gridIndex = (rowIndex: number, colIndex: number, colNum: number) => {
-        // console.log((rowIndex) * (colNum) + (colIndex + 1))
-        return ((rowIndex) * (colNum) + (colIndex + 1) - 1)
-    }
     return (
-        <div className="pt-20">
-            <div className="flex flex-row ">
-                {[...Array.from(Array(cols))].map((_, colIndex) => (
-                    <div key={colIndex} className="px-2 w-full ">
-                        <div className="h-fit w-full  " style={{
-                            // width: "100%"
-                        }}>
-                            <div className="flex flex-col ">
-                                {[...Array.from(Array(rows))].map((_, rowIndex) => (
-                                    <div className="py-2" key={rowIndex}>
-                                        <CardItem
-                                            // Add a unique key for each CardItem
-                                            rowIndex={rowIndex}
-                                            colIndex={colIndex}
-                                            colNum={cols}
-                                            rowNum={rows}
-                                            height={
-                                                (isCardLarge(rowIndex + 1, colIndex + 1, rows, cols) ? largeHeight : smallHeight)
-                                            }
-                                            projectName={data[gridIndex(rowIndex, colIndex, cols)] == undefined ? "" : data[gridIndex(rowIndex, colIndex, cols)].projectName}
-                                            aboutProject={data[gridIndex(rowIndex, colIndex, cols)] == undefined ? "" : data[gridIndex(rowIndex, colIndex, cols)].aboutProject}
-                                            imgSrc={data[gridIndex(rowIndex, colIndex, cols)] == undefined ? "" : data[gridIndex(rowIndex, colIndex, cols)].imgSrc}
-                                            techStack={data[gridIndex(rowIndex, colIndex, cols)] == undefined ? [""] : data[gridIndex(rowIndex, colIndex, cols)].tech}
-                                            url={data[gridIndex(rowIndex, colIndex, cols)] == undefined ? "" : data[gridIndex(rowIndex, colIndex, cols)].url}
-                                        />
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
+        <div style={{ overflowX: 'scroll', whiteSpace: 'nowrap' }}>
+            {evenIndexedArray.map((_, index) => (
+                <div
+                    key={index}
+                    style={{
+                        width: '500px',
+                        marginRight: '10px',
+                        // backgroundColor: 'lightgrey',
+                        display: 'inline-block',
+
+                    }}
+                >
+                    <div className='py-[10px]'>
+                        <CardItem
+                            height={
+                                300
+                            }
+                            projectName={evenIndexedArray[index].projectName}
+                            aboutProject={evenIndexedArray[index].aboutProject}
+                            imgSrc={evenIndexedArray[index].imgSrc}
+                            techStack={evenIndexedArray[index].tech}
+                            url={evenIndexedArray[index].imgSrc}
+                        />
                     </div>
-                ))}
-            </div>
+                    {oddIndexedArray[index] && <CardItem
+                        height={
+                            300
+                        }
+                        projectName={oddIndexedArray[index].projectName}
+                        aboutProject={oddIndexedArray[index].aboutProject}
+                        imgSrc={oddIndexedArray[index].imgSrc}
+                        techStack={oddIndexedArray[index].tech}
+                        url={oddIndexedArray[index].imgSrc}
+                    />}
+                </div>
+            ))}
         </div>
-    )
-}
+    );
+};
 
-export default ProjectCard
-
+export default ProjectCard;
 
 
 
 
 interface cardItemProps {
-    rowIndex: number,
-    colIndex: number,
-    colNum: number,
-    rowNum: number,
     height?: number,
     projectName: string,
     aboutProject: string,
@@ -111,10 +84,6 @@ interface cardItemProps {
 
 }
 export const CardItem: React.FC<cardItemProps> = ({
-    rowIndex,
-    colIndex,
-    colNum,
-    rowNum,
     height = 200,
     projectName,
     aboutProject,
@@ -148,12 +117,8 @@ export const CardItem: React.FC<cardItemProps> = ({
                 onMouseLeave={handleLeave}
             >
                 <div className=' bg-orange-500 overflow-hidden' style={{
-                    height: height
+                    height: height,
                 }}>
-                    {/* {(rowIndex) * (colNum) + (colIndex + 1)} */}
-                    {/* {"r=" + rowIndex}
-                {"rNo=" + rowNum} */}
-                    {/* {colIndex} */}
                     <div className="relative h-full w-full">
                         {/* */
                      /*__________________________ Foreground div  ______________________ */
@@ -163,15 +128,6 @@ export const CardItem: React.FC<cardItemProps> = ({
                                 <div className='text-2xl font-bold '>
                                     {projectName}
                                 </div>
-                                {/* <div className='flex flex-row text-xl'>
-                                    BishalK007 / Rhythm
-                                    <IconLocal
-                                        iconSrc='in_new_tab'
-                                        bgColor='transparent'
-                                        size={22}
-                                        classTW='ml-2'
-                                    />
-                                </div> */}
                                 <ExpandingText
                                     expandedHeight={160}
                                     text={aboutProject}
