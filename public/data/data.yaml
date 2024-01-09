@@ -25,10 +25,13 @@ aboutMe:
 skills:
   - 
     name: NextJS
-    progress: 70 
+    progress: 85 
   - 
     name: Flutter
     progress: 80 
+  - 
+    name: Docker
+    progress: 75
   - 
     name: Kubernetes
     progress: 65 
@@ -38,9 +41,6 @@ skills:
   - 
     name: NodeJS
     progress: 65
-  - 
-    name: Docker
-    progress: 40
 
 
 
@@ -50,7 +50,7 @@ programming_languages:
     progress: 85 
   -
     name: Typescript
-    progress: 75
+    progress: 80
   -
     name: Dart
     progress: 75
@@ -72,11 +72,11 @@ experience:
         Kubernetes
     work:
       -     
-        "Led the development of a corporate portal using Next.js, enabling seamless product integration." 
+        "Championed the development of a company website utilizing the Next.js framework making load time ~10% faster." 
       -
-        "Contributed to the enhancement of the core product by employing containerized Docker images." 
+        "Spearheaded the containerization of applications using Docker, which now supports 4 linux images within our infrastructure." 
       -
-        "Conducted preliminary testing of images on Kubernetes within the AWS environment." 
+        "Administered preliminary testing of Docker images on a Kubernetes platform within the AWS environment, which are now used across 2 departments within the company" 
   # - 
   #   company: ProjectX
   #   image: /assets/company_images/project_x_logo_.png
