@@ -71,7 +71,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
                             aboutProject={oddIndexedArray[index].aboutProject}
                             imgSrc={oddIndexedArray[index].imgSrc}
                             techStack={oddIndexedArray[index].tech}
-                            url={oddIndexedArray[index].imgSrc}
+                            url={oddIndexedArray[index].url}
                         />}
                     </div>
                 ))}
