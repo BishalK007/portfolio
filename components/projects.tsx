@@ -6,6 +6,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import ProjectCard from './re_usable/card/project_card';
 import Button from './re_usable/button/button';
 import ProjectCardMobile from './re_usable/card/project_card_mobile';
+import ToggleButton from './re_usable/button/toggle-grid-gallery';
 interface ProjectData {
     projectName: string;
     aboutProject: string;
@@ -53,24 +54,55 @@ const Projects: React.FC<{ data: Data }> = ({ data }) => {
 
         })
     })
+    const [isViewGrid, setIsViewGrid] = useState(false)
+    const onGridPress = () => {
+        setIsViewGrid(true);
+    }
+    const onGalleryPress = () => {
+        setIsViewGrid(false);
+    }
+
     if (windowWidth == 0) {
         return <></>
     }
+
     return (
         <div className='text-white px-10 md:px-20 pt-24 ' >
             <div className=''>
-                <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl pb-10'>My<span className='text-green-500'> Projects</span></div>
+                <div className="flex flex-row justify-between items-center  pb-10">
+                    <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl '>My<span className='text-green-500'> Projects</span></div>
+
+                    <ToggleButton
+                        onGalleryPress={onGalleryPress}
+                        onGridPress={onGridPress}
+                    />
+
+
+                </div>
 
                 {/* */
                 /*__________________________ Contracting Container  ______________________ */
                 /* */}
-                {windowWidth > 625 && <ProjectCard
+                {windowWidth > 1280 && <ProjectCard
                     // data = {Array.from({length: 10})}
                     data={projectDataArray}
+                    gallerySlideWidth={
+                        "1100px"
+                    }
+                    isViewGrid={isViewGrid}
+                />}
+                {windowWidth > 625 && windowWidth < 1280 && <ProjectCard
+                    // data = {Array.from({length: 10})}
+                    data={projectDataArray}
+                    gallerySlideWidth={
+                        "calc(100% - 5rem)"
+                    }
+                    isViewGrid={isViewGrid}
                 />}
                 {windowWidth <= 625 && <ProjectCardMobile
                     // data = {Array.from({length: 10})}
                     data={projectDataArray}
+
                 />}
             </div>
         </div>
