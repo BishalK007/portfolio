@@ -58,19 +58,21 @@ const Projects: React.FC<{ data: Data }> = ({ data }) => {
     }
     return (
         <div className='text-white px-10 md:px-20 pt-24 ' >
-            <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl pb-10'>My<span className='text-green-500'> Projects</span></div>
+            <div className=''>
+                <div className='font-caprasimo text-4xl xsm:text-5xl sm:text-6xl pb-10'>My<span className='text-green-500'> Projects</span></div>
 
-            {/* */
-             /*__________________________ Contracting Container  ______________________ */
-             /* */}
-            {windowWidth > 625 && <ProjectCard
-                // data = {Array.from({length: 10})}
-                data={projectDataArray}
-            />}
-            {windowWidth <= 625 && <ProjectCardMobile
-                // data = {Array.from({length: 10})}
-                data={projectDataArray}
-            />}
+                {/* */
+                /*__________________________ Contracting Container  ______________________ */
+                /* */}
+                {windowWidth > 625 && <ProjectCard
+                    // data = {Array.from({length: 10})}
+                    data={projectDataArray}
+                />}
+                {windowWidth <= 625 && <ProjectCardMobile
+                    // data = {Array.from({length: 10})}
+                    data={projectDataArray}
+                />}
+            </div>
         </div>
     )
 }

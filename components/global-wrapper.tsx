@@ -9,9 +9,6 @@ import GetContact from './get-contact';
 import Footer from './footer';
 import { ToastContainer} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './ui/carousel';
-import Autoplay from 'embla-carousel-autoplay';
-import { CardItem } from './re_usable/card/project_card';
 
 const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
   const sectionRefs = {
@@ -58,48 +55,6 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
   return (
     <div>
       <Nav currSelectedItem={currViewPortItem} />
-      {/* <Carousel
-            opts={{
-                align: "center",
-                loop: true,
-            }}
-            plugins={[
-                Autoplay({
-                    delay: 2000,
-                })
-            ]}
-            className="w-[500px]"
-        >
-            <CarouselPrevious />
-            <CarouselContent>
-                {Array.from(data).map((_, index) => (
-                    <CarouselItem
-                        key={index}
-                        style={{
-                            width: '500px',
-                            marginRight: '10px',
-                            // backgroundColor: 'lightgrey',
-                            display: 'inline-block',
-
-                        }}
-                    >
-                        <div className='py-[10px]'>
-                            <CardItem
-                                height={
-                                    500
-                                }
-                                projectName={"hello"}
-                                aboutProject={"hi"}
-                                imgSrc={""}
-                                techStack={["1", "2"]}
-                                url={""}
-                            />
-                        </div>
-                    </CarouselItem>
-                ))}
-            </CarouselContent>
-            <CarouselNext />
-        </Carousel> */}
       <div ref={sectionRefs.home} id="home">
         <WelcomeScreen data={data} />
       </div>

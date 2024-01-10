@@ -1,21 +1,10 @@
 'use client'
-import { isNumber } from '@node_modules/tailwind-merge/dist/lib/validators';
 import Image from 'next/image';
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { CSSProperties } from 'react';
 import IconLocal from '../icons/default_icon';
 import Link from 'next/link';
 import ExpandingText from '../text/expanding_text';
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel"
-import Autoplay from 'embla-carousel-autoplay';
-
-
 
 interface ProjectData {
     projectName: string;

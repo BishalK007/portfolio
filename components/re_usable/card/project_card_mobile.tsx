@@ -6,14 +6,17 @@ import { CSSProperties } from 'react';
 import IconLocal from '../icons/default_icon';
 import Link from 'next/link';
 import ExpandingText from '../text/expanding_text';
-import {
-    Carousel,
-    CarouselContent,
-    CarouselItem,
-    CarouselNext,
-    CarouselPrevious,
-} from "@/components/ui/carousel"
-import Autoplay from 'embla-carousel-autoplay';
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import 'swiper/css/effect-coverflow';
+
+// import required modules
+import { Autoplay, Pagination, Navigation, EffectCoverflow } from 'swiper/modules';
 
 
 
@@ -33,33 +36,44 @@ const ProjectCardMobile: React.FC<ProjectCardMobileProps> = ({
     data,
 }) => {
     return (
-        <div className='w-full '>
-            <Carousel
-                opts={{
-                    align: "center",
-                    loop: true,
-                }}
-                plugins={[
-                    Autoplay({
-                        delay: 3000,
-                        stopOnInteraction: true,
-                    })
-                ]}
-                className="w-[calc(100%-40px)] translate-x-[20px]"
-            >
-                <CarouselContent>
+        <div className='w-full relative h-[560px] '>
+            {/* ~ */}
+            <div className=' w-[calc(100%+5rem)] translate-x-[-2.5rem] absolute text-white h-[550px]'>
+                <Swiper
+                    effect={'coverflow'}
+                    slidesPerView={'auto'}
+                    centeredSlides={true}
+                    spaceBetween={5}
+                    loop={true}
+                    navigation={true}
+                    autoplay={{
+                        delay: 3500,
+                        disableOnInteraction: false,
+                      }}
+                    coverflowEffect={{
+                        rotate: 50,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: true,
+                      }}
+                    modules={[Autoplay, Pagination, Navigation, EffectCoverflow]}
+                    className="mySwiper"
+                >
                     {data.map((_, index) => (
-                        <CarouselItem
+                        <SwiperSlide
                             key={index}
                             style={{
-                                // width: '300px',
+                                width: 'calc(100% - 5rem + 4px)',
                                 marginRight: '10px',
                                 // backgroundColor: 'lightgrey',
                                 display: 'inline-block',
 
+
                             }}
+                            // className='w-[calc(100%-5rem)] translate-x-[2.5rem]'
                         >
-                            <div className='py-[10px]'>
+                            <div className=''>
                                 <CardItem
                                     height={
                                         550
@@ -71,13 +85,10 @@ const ProjectCardMobile: React.FC<ProjectCardMobileProps> = ({
                                     url={data[index].url}
                                 />
                             </div>
-                        </CarouselItem>
+                        </SwiperSlide>
                     ))}
-                </CarouselContent>
-                    <CarouselPrevious />
-                <CarouselNext />
-            </Carousel>
-
+                </Swiper>
+            </div>
         </div>
 
     );
