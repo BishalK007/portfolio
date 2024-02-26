@@ -65,7 +65,7 @@ const WelcomeScreen: React.FC<{
             backDropColor='var(--green-500)'
             backDropTranslate={[15, 15]}
             animationDuration={700}
-            objectPosition='calc(50% + 50px) top'
+            objectPosition='calc(50% ) calc(-10% )'
           />
         </div>
         {/* */
