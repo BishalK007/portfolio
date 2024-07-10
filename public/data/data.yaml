@@ -76,7 +76,11 @@ experience:
       -
         "Spearheaded the containerization of applications using Docker, which now supports 4 linux images within our infrastructure." 
       -
-        "Administered preliminary testing of Docker images on a Kubernetes platform within the AWS environment, which are now used across 2 departments within the company" 
+        "Administered preliminary testing of Docker images on a Kubernetes platform within the AWS environment, which are now used across 2 departments within the company"
+      - 
+        "Implemented GPU-enabled Kubernetes Dev cluster with Multi-Instance GPU (MIG) support, optimizing resource allocation and significantly enhancing development workflow efficiency for the application team."
+      -   
+        "Created a survey form using Next.js, integrated with Firebase for data storage, which garnered 119 responses during beta testing, yielding valuable user insights."
   # - 
   #   company: ProjectX
   #   image: /assets/company_images/project_x_logo_.png
