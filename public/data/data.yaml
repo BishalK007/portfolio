@@ -24,7 +24,7 @@ aboutMe:
 
 skills:
   - 
-    name: NextJS
+    name: Next.js
     progress: 85 
   - 
     name: Flutter
@@ -39,21 +39,32 @@ skills:
     name: MongoDB
     progress: 65 
   - 
-    name: NodeJS
+    name: Node.js
     progress: 65
-
-
+  - 
+    name: AWS
+    progress: 60
+  - 
+    name: Git
+    progress: 70
 
 programming_languages:
   - 
     name: C++
     progress: 85 
   -
-    name: Typescript
+    name: TypeScript
     progress: 80
   -
     name: Dart
     progress: 75
+  -
+    name: Bash
+    progress: 80
+  -
+    name: Golang
+    progress: 60
+
 
 experience:
   - 
