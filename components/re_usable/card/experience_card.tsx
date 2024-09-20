@@ -52,7 +52,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
 
     useEffect(() => {
         if (showAnimation && inview && backDropRef.current) {
-            console.log('heloo')
+            // console.log('heloo')
             backDropRef.current.style.transform = `translate(${backdropTranslate[0]}px, ${backdropTranslate[1]}px)`;
         }
         if (showAnimation && !inview && backDropRef.current) {
@@ -61,7 +61,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
         if (frontRef.current) {
             setcardHeight(frontRef.current.offsetHeight);
             setCardWidth(frontRef.current.offsetWidth)
-            console.log('Height:', frontRef.current.offsetHeight);
+            // console.log('Height:', frontRef.current.offsetHeight);
         }
     }, [inview, backdropTranslate]);
 

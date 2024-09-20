@@ -55,7 +55,7 @@ const GetContact: React.FC<{ data: Data }> = ({ data }) => {
     }
 
     const submitEmailJS = async (data: data) => {
-        console.log(data.nameFieldValue)
+        // console.log(data.nameFieldValue)
         if (data.nameFieldValue == '') {
             callToast('Please enter your name')
             return;

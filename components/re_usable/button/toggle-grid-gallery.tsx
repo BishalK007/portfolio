@@ -24,7 +24,7 @@ const ToggleButton: React.FC<ToggleButtonProp> = ({
             <button
                 // disabled={isGridView ? false : true}
                 onClick={() => {
-                    console.log("gall");
+                    // console.log("gall");
                     onGalleryPress();
                     isGridView ?? setIsGridView(false)
                 }}
@@ -41,7 +41,7 @@ const ToggleButton: React.FC<ToggleButtonProp> = ({
                 // disabled={isGridView ? true : false}
                 onClick={() => {
                     onGridPress();
-                    console.log("grid")
+                    // console.log("grid")
                     !isGridView ?? setIsGridView(true)  
                 }}
                 className={cn(
