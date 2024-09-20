@@ -37,3 +37,6 @@ components/.env
 
 .env
 bun.lockb
+
+
+.devcontainer
