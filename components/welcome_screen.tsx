@@ -63,7 +63,7 @@ const WelcomeScreen: React.FC<{
             width={windowWidth / 2 - 100}
             height={800}
             backDropColor='var(--green-500)'
-            backDropTranslate={[15, 15]}
+            backDropTranslate={[15, 15]} // width, height OR x, y
             animationDuration={700}
             objectPosition='calc(50% ) calc(-10% )'
           />

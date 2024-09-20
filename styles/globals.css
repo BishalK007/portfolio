@@ -101,7 +101,8 @@ body {
 }
 
 .profile-image {
-    background: linear-gradient(to Right, var(--bg-color), white);
+    /* background: linear-gradient(to Right, var(--bg-color), white); */
+    background: linear-gradient(to Right, transparent, white);
     
 }
 
@@ -128,3 +129,4 @@ div::-webkit-scrollbar-thumb:hover {
   color: #ccc !important;
   border: 2px bold #1e1e21;
   }
+
