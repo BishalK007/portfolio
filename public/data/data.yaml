@@ -20,7 +20,7 @@ aboutMe:
   linkdinLink: https://www.linkedin.com/in/bishal-123-karmakar/
   instagramLink: https://www.instagram.com/bishalkmkr/
   cv: /assets/Bishal's_resume.pdf
-  education: 3rd year, B.Tech Computer Science
+  education: 4th year, B.Tech Computer Science
 
 skills:
   - 
@@ -31,7 +31,7 @@ skills:
     progress: 80 
   - 
     name: Docker
-    progress: 75
+    progress: 85
   - 
     name: Kubernetes
     progress: 65 
@@ -46,7 +46,7 @@ skills:
     progress: 60
   - 
     name: Git
-    progress: 70
+    progress: 80
 
 programming_languages:
   - 
@@ -63,7 +63,7 @@ programming_languages:
     progress: 80
   -
     name: Golang
-    progress: 60
+    progress: 80
 
 
 experience:
