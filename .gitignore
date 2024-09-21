@@ -40,3 +40,4 @@ bun.lockb
 
 
 .devcontainer
+package-lock.json
