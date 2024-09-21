@@ -53,10 +53,9 @@ const ProfilePic: React.FC<ProfilePicProps> = ({
   }, [inView, backDropTranslate]);
 
   return (
-    <div className='flex flex-row '>
       <div
         ref={ref}
-        className=" h-20 w-20 object-cover relative translate-x-10 "
+        className="object-cover relative  "
         style={{ width, height, maxWidth: 600 }}
       >
         <div className="flex flex-col  justify-center transition-all" style={{
@@ -104,7 +103,6 @@ const ProfilePic: React.FC<ProfilePicProps> = ({
           />
         </div>
       </div>
-    </div>
   );
 };
 
