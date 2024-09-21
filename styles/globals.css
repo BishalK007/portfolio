@@ -130,3 +130,9 @@ div::-webkit-scrollbar-thumb:hover {
   border: 2px bold #1e1e21;
   }
 
+  .noTapHighlight {
+    -webkit-tap-highlight-color: transparent;
+    /* For Firefox, although it's limited */
+    -moz-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+}

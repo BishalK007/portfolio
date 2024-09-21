@@ -94,7 +94,7 @@ const Nav: React.FC<NavProps> = ({ currSelectedItem, scrollContainerRef }) => {
         {/* Mobile Navigation */}
         <div className="md:hidden">
           {/* Mobile Menu Icon */}
-          <div className="text-white cursor-pointer" onClick={toggleMobileMenu}>
+          <div className="text-white cursor-pointer noTapHighlight" onClick={toggleMobileMenu}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
