@@ -66,7 +66,7 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
   return (
     <BackgroundBeamsWithCollision className='h-full md:h-full w-full md:w-full bg-gradient-to-r from-transparent to-transparent'>
       <div
-        className="h-[100dvh] w-full overflow-y-scroll"
+        className="h-[100dvh] w-full overflow-y-scroll scrollbar-none"
         id="scroll-container"
         ref={scrollContainerRef}
       >
