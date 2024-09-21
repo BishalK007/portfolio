@@ -60,7 +60,7 @@ const Nav: React.FC<NavProps> = ({ currSelectedItem, scrollContainerRef }) => {
     >
       <div className="flex items-center justify-between h-full">
         {/* Logo or Branding */}
-        <div className="text-xl font-bold" onClick={scrollToTop}>
+        <div className="text-xl font-bold cursor-pointer hover:scale-105 transition-transform duration-300" onClick={scrollToTop}>
           {"</> Bishal"}
         </div>
 
@@ -75,7 +75,7 @@ const Nav: React.FC<NavProps> = ({ currSelectedItem, scrollContainerRef }) => {
               smooth={true}
               offset={-70}
               duration={500}
-              className={`hover:text-gray-300 ${
+              className={`hover:text-gray-300 cursor-pointer hover:scale-105 transition-transform duration-300 ${
                 currSelectedItem === item.id ? 'text-green-500' : 'text-white'
               }`}
             >
