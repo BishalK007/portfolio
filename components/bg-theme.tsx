@@ -38,6 +38,13 @@ export const BackgroundBeamsWithCollision = ({
       className: "h-6 bg-gradient-to-t from-green-400 via-green-300 to-transparent", // Shorter green beam
     },
     {
+      initialX: 300,
+      translateX: 300,
+      duration: 3,
+      repeatDelay: 5,
+      className: "h-6 bg-gradient-to-t from-green-400 via-green-300 to-transparent", // Shorter green beam
+    },
+    {
       initialX: 400,
       translateX: 400,
       duration: 5,
@@ -68,7 +75,6 @@ export const BackgroundBeamsWithCollision = ({
       className: "h-6 bg-gradient-to-t from-green-400 via-green-300 to-transparent", // Shorter beam with lighter green color
     },
   ];
-  
 
   return (
     <div
@@ -227,6 +233,7 @@ const CollisionMechanism = React.forwardRef<
 
 CollisionMechanism.displayName = "CollisionMechanism";
 
+// Updated Explosion Component with Green Colors
 const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
   const spans = Array.from({ length: 20 }, (_, index) => ({
     id: index,
@@ -238,13 +245,16 @@ const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
 
   return (
     <div {...props} className={cn("absolute z-50 h-2 w-2", props.className)}>
+      {/* Main Explosion Effect with Green Gradient */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="absolute -inset-x-10 top-0 m-auto h-2 w-10 rounded-full bg-gradient-to-r from-transparent via-indigo-500 to-transparent blur-sm"
+        className="absolute -inset-x-10 top-0 m-auto h-2 w-10 rounded-full bg-gradient-to-r from-transparent via-green-500 to-transparent blur-sm"
       ></motion.div>
+      
+      {/* Exploding Spans with Green Colors */}
       {spans.map((span) => (
         <motion.span
           key={span.id}
@@ -255,7 +265,7 @@ const Explosion = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
             opacity: 0,
           }}
           transition={{ duration: Math.random() * 1.5 + 0.5, ease: "easeOut" }}
-          className="absolute h-1 w-1 rounded-full bg-gradient-to-b from-indigo-500 to-purple-500"
+          className="absolute h-1 w-1 rounded-full bg-gradient-to-b from-green-500 to-green-700"
         />
       ))}
     </div>
