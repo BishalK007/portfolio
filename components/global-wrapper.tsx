@@ -11,6 +11,7 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { BackgroundBeamsWithCollision } from './bg-theme';
 
+
 const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
   const sectionRefs = {
     home: useRef<HTMLDivElement>(null),
@@ -19,15 +20,17 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
     projects: useRef<HTMLDivElement>(null),
     getcontact: useRef<HTMLDivElement>(null),
   };
-  const foregroundRef = useRef<HTMLDivElement>(null)
-  const [foregroundHeight, setForegroundHeight] = useState('0')
-
+  const foregroundRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const [foregroundHeight, setForegroundHeight] = useState('0');
   const [currViewPortItem, setCurrViewPortItem] = useState('');
 
   useEffect(() => {
+    if (!scrollContainerRef.current) return;
+
     // Intersection Observer setup
     const options = {
-      root: null, // Use the viewport as the root
+      root: scrollContainerRef.current, // Use the scrollable div as the root
       rootMargin: '0px',
       threshold: 0.4, // When 40% of the element is visible
     };
@@ -58,14 +61,17 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
       // Cleanup observer on component unmount
       observer.disconnect();
     };
-  }, [sectionRefs, foregroundRef]);
+  }, [sectionRefs, foregroundRef, scrollContainerRef]);
 
   return (
-
-    <BackgroundBeamsWithCollision className='h-full md:h-full w-full md:w-full bg-gradient-to-r from-transparent to-transparent '>
-      <div className="h-[100dvh] w-full overflow-y-scroll">
+    <BackgroundBeamsWithCollision className='h-full md:h-full w-full md:w-full bg-gradient-to-r from-transparent to-transparent'>
+      <div
+        className="h-[100dvh] w-full overflow-y-scroll"
+        id="scroll-container"
+        ref={scrollContainerRef}
+      >
         <div className="w-full h-[5000px]" ref={foregroundRef}>
-        <Nav currSelectedItem={currViewPortItem} />
+          <Nav currSelectedItem={currViewPortItem} scrollContainerRef={scrollContainerRef} />
           <div ref={sectionRefs.home} id="home">
             <WelcomeScreen data={data} />
           </div>
