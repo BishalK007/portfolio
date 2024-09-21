@@ -8,22 +8,26 @@ import { CiGrid41 } from "react-icons/ci";
 interface ToggleButtonProp {
     onGridPress: () => void;
     onGalleryPress: () => void;
-    // Removed gridButtonColorTW and galleryButtonColorTW for consistency
+    slidingIndicatorColor?: string ;
+    toggleBgColor?: string;
 }
 
 const ToggleButton: React.FC<ToggleButtonProp> = ({
     onGalleryPress,
     onGridPress,
+    slidingIndicatorColor = 'bg-[var(--green-500)]',
+    toggleBgColor = 'bg-gray-800',
 }) => {
     const [isGridView, setIsGridView] = useState(false);
 
     return (
         <div
             className={cn(
-                "relative flex flex-row h-14 text-white rounded-lg bg-gray-800",
+                "relative flex flex-row h-14 text-white rounded-lg ",
                 "transition-all duration-300 ease-in-out",
                 "overflow-hidden",
-                "shadow-inner" // Optional: Adds inner shadow for depth
+                "shadow-inner", // Optional: Adds inner shadow for depth
+                toggleBgColor
             )}
         >
             {/* Sliding Background Indicator */}
@@ -31,7 +35,7 @@ const ToggleButton: React.FC<ToggleButtonProp> = ({
                 className={cn(
                     "absolute top-0 left-0 h-full w-20 transition-transform duration-300 ease-in-out",
                     isGridView ? "translate-x-full rounded-r-lg" : "translate-x-0 rounded-l-lg",
-                    "bg-green-500" // Fixed color for the sliding indicator
+                    slidingIndicatorColor // Fixed color for the sliding indicator
                 )}
             ></div>
 

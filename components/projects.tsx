@@ -75,8 +75,7 @@ const Projects: React.FC<{ data: Data }> = ({ data }) => {
                     {windowWidth > 625 && <ToggleButton
                         onGalleryPress={onGalleryPress}
                         onGridPress={onGridPress}
-                        galleryButtonColorTW={isViewGrid ? 'bg-green-500' : 'bg-green-950'}
-                        gridButtonColorTW={!isViewGrid ? 'bg-green-500' : 'bg-green-950'}
+                        
                     />}
 
 
