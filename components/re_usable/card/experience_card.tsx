@@ -63,7 +63,7 @@ const ExperienceCard: React.FC<ExperienceCardProps> = ({
             setCardWidth(frontRef.current.offsetWidth)
             // console.log('Height:', frontRef.current.offsetHeight);
         }
-    }, [inview, backdropTranslate]);
+    }, [inview, backdropTranslate, showAnimation]);
 
     return (
         // dummy

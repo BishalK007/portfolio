@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import Nav from './nav';
 import WelcomeScreen from './welcome_screen';
@@ -7,19 +7,26 @@ import Experience from './experience';
 import Projects from './projects';
 import GetContact from './get-contact';
 import Footer from './footer';
-import { ToastContainer } from 'react-toastify'
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BackgroundBeamsWithCollision } from './bg-theme';
 
-
 const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
-  const sectionRefs = {
-    home: useRef<HTMLDivElement>(null),
-    aboutme: useRef<HTMLDivElement>(null),
-    experience: useRef<HTMLDivElement>(null),
-    projects: useRef<HTMLDivElement>(null),
-    getcontact: useRef<HTMLDivElement>(null),
-  };
+  // Use a single ref to hold all section refs
+  const sectionRefs = useRef<{
+    home: HTMLDivElement | null;
+    aboutme: HTMLDivElement | null;
+    experience: HTMLDivElement | null;
+    projects: HTMLDivElement | null;
+    getcontact: HTMLDivElement | null;
+  }>({
+    home: null,
+    aboutme: null,
+    experience: null,
+    projects: null,
+    getcontact: null,
+  });
+
   const foregroundRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [foregroundHeight, setForegroundHeight] = useState('0');
@@ -46,9 +53,9 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
     const observer = new IntersectionObserver(callback, options);
 
     // Observe all section elements
-    Object.values(sectionRefs).forEach((ref) => {
-      if (ref.current) {
-        observer.observe(ref.current);
+    Object.values(sectionRefs.current).forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
       }
     });
 
@@ -61,7 +68,7 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
       // Cleanup observer on component unmount
       observer.disconnect();
     };
-  }, [sectionRefs, foregroundRef, scrollContainerRef]);
+  }, [foregroundRef, scrollContainerRef]);
 
   return (
     <BackgroundBeamsWithCollision className='h-full md:h-full w-full md:w-full bg-gradient-to-r from-transparent to-transparent'>
@@ -72,19 +79,19 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
       >
         <div className="w-full h-[5000px]" ref={foregroundRef}>
           <Nav currSelectedItem={currViewPortItem} scrollContainerRef={scrollContainerRef} />
-          <div ref={sectionRefs.home} id="home">
+          <div ref={(el) => sectionRefs.current.home = el} id="home">
             <WelcomeScreen data={data} />
           </div>
-          <div ref={sectionRefs.aboutme} id="aboutme">
+          <div ref={(el) => sectionRefs.current.aboutme = el} id="aboutme">
             <AboutMe data={data} />
           </div>
-          <div ref={sectionRefs.experience} id="experience">
+          <div ref={(el) => sectionRefs.current.experience = el} id="experience">
             <Experience data={data} />
           </div>
-          <div ref={sectionRefs.projects} id="projects">
+          <div ref={(el) => sectionRefs.current.projects = el} id="projects">
             <Projects data={data} />
           </div>
-          <div ref={sectionRefs.getcontact} id="get-contact">
+          <div ref={(el) => sectionRefs.current.getcontact = el} id="get-contact">
             <GetContact data={data} />
           </div>
           <Footer data={data} />
