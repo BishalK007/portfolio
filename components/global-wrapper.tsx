@@ -10,6 +10,8 @@ import Footer from './footer';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BackgroundBeamsWithCollision } from './bg-theme';
+import { cn } from '@lib/utils';
+import PageRevealAnimation from './ui/page_reveal';
 
 const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
   // Use a single ref to hold all section refs
@@ -29,7 +31,7 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
 
   const foregroundRef = useRef<HTMLDivElement>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-  const [foregroundHeight, setForegroundHeight] = useState('0');
+
   const [currViewPortItem, setCurrViewPortItem] = useState('');
 
   useEffect(() => {
@@ -59,10 +61,6 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
       }
     });
 
-    // Set the foreground height using offsetHeight
-    if (foregroundRef.current) {
-      setForegroundHeight(`${foregroundRef.current.offsetHeight}px`);
-    }
 
     return () => {
       // Cleanup observer on component unmount
@@ -71,34 +69,41 @@ const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
   }, [foregroundRef, scrollContainerRef]);
 
   return (
-    <BackgroundBeamsWithCollision className='h-full md:h-full w-full md:w-full bg-gradient-to-r from-transparent to-transparent'>
-      <div
-        className="h-[100dvh] w-full overflow-y-scroll scrollbar-none"
-        id="scroll-container"
-        ref={scrollContainerRef}
-      >
-        <div className="w-full h-[5000px]" ref={foregroundRef}>
-          <Nav currSelectedItem={currViewPortItem} scrollContainerRef={scrollContainerRef} />
-          <div ref={(el) => sectionRefs.current.home = el} id="home">
-            <WelcomeScreen data={data} />
+    <div className="h-full w-full relative">
+      <PageRevealAnimation />
+      <BackgroundBeamsWithCollision
+        className={cn(
+          'h-full md:h-full w-full md:w-full bg-gradient-to-r from-transparent to-transparent',
+          'transition-opacity delay-500 duration-500 ease-in',
+        )}>
+        <div
+          className="h-[100dvh] w-full overflow-y-scroll scrollbar-none"
+          id="scroll-container"
+          ref={scrollContainerRef}
+        >
+          <div className="w-full h-[5000px]" ref={foregroundRef}>
+            <Nav currSelectedItem={currViewPortItem} scrollContainerRef={scrollContainerRef} />
+            <div ref={(el) => sectionRefs.current.home = el} id="home">
+              <WelcomeScreen data={data} />
+            </div>
+            <div ref={(el) => sectionRefs.current.aboutme = el} id="aboutme">
+              <AboutMe data={data} />
+            </div>
+            <div ref={(el) => sectionRefs.current.experience = el} id="experience">
+              <Experience data={data} />
+            </div>
+            <div ref={(el) => sectionRefs.current.projects = el} id="projects">
+              <Projects data={data} />
+            </div>
+            <div ref={(el) => sectionRefs.current.getcontact = el} id="get-contact">
+              <GetContact data={data} />
+            </div>
+            <Footer data={data} />
+            <ToastContainer />
           </div>
-          <div ref={(el) => sectionRefs.current.aboutme = el} id="aboutme">
-            <AboutMe data={data} />
-          </div>
-          <div ref={(el) => sectionRefs.current.experience = el} id="experience">
-            <Experience data={data} />
-          </div>
-          <div ref={(el) => sectionRefs.current.projects = el} id="projects">
-            <Projects data={data} />
-          </div>
-          <div ref={(el) => sectionRefs.current.getcontact = el} id="get-contact">
-            <GetContact data={data} />
-          </div>
-          <Footer data={data} />
-          <ToastContainer />
         </div>
-      </div>
-    </BackgroundBeamsWithCollision>
+      </BackgroundBeamsWithCollision>
+    </div>
   );
 };
 

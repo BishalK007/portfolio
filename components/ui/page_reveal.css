@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap');
+
+/* PageRevealAnimation.css */
+
+.page-reveal-container {
+    position: absolute;
+    z-index: 9999;
+    height: 100%;
+    width: 100%;
+    background-color: var(--bg-color); /* Tailwind green-600 */
+    opacity: 1;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.letter {
+    position: absolute;
+    font-size: 5rem; /* Adjust size as needed */
+    font-family: "Protest Guerrilla", sans-serif;
+    font-weight: bold;
+    font-weight: 400;
+    font-style: normal;
+    color: white;
+    opacity: 0;
+}
+
+.letter-b {
+    animation: dropB 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 300ms forwards,
+               scaleUpB 0.5s 2.3s forwards;
+}
+
+.letter-k {
+    animation: slideK 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) 1.3s forwards,
+               scaleUpK 0.5s 2.3s forwards;
+}
+
+/* Keyframes for Letter B Dropping and Bouncing */
+@keyframes dropB {
+    0% {
+        transform: translate(-2.5rem, -150vh);
+        opacity: 0;
+    }
+    60% {
+        transform: translate(-2.5rem, 0vh);
+        opacity: .2;
+    }
+    80% {
+        transform: translate(-2.5rem, -200px);
+        opacity: .6;
+    }
+    100% {
+        transform: translate(-2.5rem, 0vh);
+        opacity: 1;
+    }
+}
+
+/* Keyframes for Letter K Sliding In and Colliding */
+@keyframes slideK {
+    0% {
+        transform: translateX(150dvw);
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(0vw);
+        opacity: .2;
+    }
+    80% {
+        transform: translateX(calc(200px + 2.5rem));
+        opacity: .6;
+    }
+    100% {
+        transform: translateX(calc(0vw + 2.5rem));
+        opacity: 1;
+    }
+}
+
+/* Keyframes for Scaling Up */
+@keyframes scaleUpB {
+    0% {
+        transform: scale(1) translate(-2.5rem, 0vh);
+    }
+    100% {
+        transform: scale(1.5) translate(-2.5rem, 0vh);
+    }
+}
+
+@keyframes scaleUpK {
+    0% {
+        transform: scale(1) translateX(calc(0vw + 2.5rem));
+    }
+    100% {
+        transform: scale(1.5) translateX(calc(0vw + 2.5rem));
+    }
+}
+
+.page-reveal-container {
+    animation: fadeOut 0.5s 2.3s forwards;
+}
+
+/* Keyframes for Fading Out and Hiding the Page Container */
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    99% {
+        opacity: 0;
+        display: flex; /* Ensure it's still visible while fading out */
+    }
+    100% {
+        opacity: 0;
+        display: none; /* Hide after fade out */
+    }
+}
