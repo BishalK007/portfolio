@@ -72,7 +72,7 @@ const ProgressCard: React.FC<ProgressCardProp> = ({
                     size={100}
                     progressValue={value / 100}
                     borderWidth={4}
-                    progressColor='gray'
+                    progressColor='var(--green-500)'
                     showAnimation={true}
                     animationDuration={700}
                     insideText={`${key}`}
@@ -86,7 +86,7 @@ const ProgressCard: React.FC<ProgressCardProp> = ({
                   height={4}
                   progressValue={value / 100}
                   cornerRadius={2}
-                  progressColor='gray'
+                  progressColor='var(--green-500)'
                 />
               )}
             </div>
