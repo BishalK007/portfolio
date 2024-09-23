@@ -1,4 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Borel&family=Bricolage+Grotesque:opsz@10..48&family=Caprasimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Borel&family=Bricolage+Grotesque:opsz@10..48&family=Caprasimo&family=Oswald:wght@200..700&display=swap');
+
+
 
 @tailwind base;
 @tailwind components;
