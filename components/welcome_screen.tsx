@@ -67,7 +67,7 @@ const WelcomeScreen: React.FC<{
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ docId: "data.aboutMe.cvGdriveFileId" })
+        body: JSON.stringify({ docId: data.aboutMe.cvGdriveFileId })
       });
 
       if (!response.ok) {
