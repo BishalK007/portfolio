@@ -21,17 +21,19 @@ aboutMe:
   instagramLink: https://www.instagram.com/bishalkmkr/
   cv: /assets/Bishal's_resume.pdf
   education: 4th year, B.Tech Computer Science
+  blogLink: https://blogs.bishal.pro
+  cvGdriveFileId: 1Kp7SmiKT2FvKf7NcXTYEQ3LGEabDZGFV8GkKJ5dP8bA #No issues as access only given to API
 
 skills:
   - 
     name: Next.js
     progress: 85 
   - 
-    name: Flutter
-    progress: 80 
-  - 
     name: Docker
     progress: 85
+  - 
+    name: Flutter
+    progress: 80 
   - 
     name: Kubernetes
     progress: 65 
@@ -50,19 +52,22 @@ skills:
 
 programming_languages:
   - 
+    name: Rust
+    progress: 75
+  - 
     name: C++
     progress: 85 
   -
     name: TypeScript
     progress: 80
   -
+    name: Golang
+    progress: 80
+  -
     name: Dart
     progress: 75
   -
     name: Bash
-    progress: 80
-  -
-    name: Golang
     progress: 80
 
 

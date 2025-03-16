@@ -23,6 +23,8 @@ interface Data {
       instagramLink:string
       cv: string
       education: string
+      blogLink: string
+      cvGdriveFileId: string
     };
     skills: {
       name: string
