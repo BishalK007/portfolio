@@ -1,8 +1,8 @@
-import { SMTPClient } from 'emailjs';
+import nodemailer from 'nodemailer';
 
 const emailPassword = process.env.EMAIL_PASSWORD;
-const email = process.env.EMAIL
-const smtphost = 'smtp.gmail.com'
+const email = process.env.EMAIL;
+const smtphost = 'smtp.gmail.com';
 
 export const POST = async (request: Request): Promise<Response> => {
     if (!emailPassword || !email) {
@@ -14,13 +14,6 @@ export const POST = async (request: Request): Promise<Response> => {
         });
     }
 
-    const client = new SMTPClient({
-        user: email,
-        password: emailPassword,
-        host: smtphost,
-        ssl: true,
-    });
-
     const {
         nameFieldValue,
         emailFieldValue,
@@ -28,8 +21,15 @@ export const POST = async (request: Request): Promise<Response> => {
         bodyFieldValue,
     } = await request.json();
 
-    let response = 'Mail Sent Successfully';
-    let status = 200;
+    const transporter = nodemailer.createTransport({
+        host: smtphost,
+        port: 465, // Use 587 for TLS
+        secure: true, // Use `true` for port 465, `false` for other ports
+        auth: {
+            user: email,
+            pass: emailPassword,
+        },
+    });
 
     const htmlBody = `
     <!DOCTYPE html>
@@ -74,25 +74,27 @@ export const POST = async (request: Request): Promise<Response> => {
       </div>
     </body>
     </html>
-    
 `;
+
     try {
-        const message = await client.sendAsync({
-            text: bodyFieldValue,
-            from: 'you <bishalkarmakar007@gmail.com>',
-            to: 'someone <bishal123official@gmail.com>',
-            subject: `${subjectFieldValue}`,
-            attachment: [
-                { data: htmlBody, alternative: true },
-            ],
-        });
-        return new Response(JSON.stringify({ message }), {
+        const mailOptions = {
+            from: `PORTFOLIO-BOT < ${email}>`,
+            to: `Bishal <bishal123official@gmail.com>`, 
+            subject: subjectFieldValue,
+            text: bodyFieldValue, // Plain text body
+            html: htmlBody, // HTML body
+        };
+
+        await transporter.sendMail(mailOptions);
+
+        return new Response(JSON.stringify({ message: 'Mail Sent Successfully' }), {
             status: 200,
             headers: {
                 'Content-Type': 'application/json',
             },
         });
     } catch (error) {
+        console.error('Failed to send email:', error);
         return new Response(
             JSON.stringify({ message: 'Failed to send email: ' + error }),
             {
