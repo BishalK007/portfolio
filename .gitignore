@@ -36,6 +36,3 @@ next-env.d.ts
 components/.env
 
 .env
-bun.lockb
-
-package-lock.json
