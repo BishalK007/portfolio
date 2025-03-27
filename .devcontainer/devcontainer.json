@@ -1,0 +1,37 @@
+{
+    "name": "Dev Container With:  Bun Node.js, Npm, Yarn, Pnpm Typescript-tsc",
+    "image": "mcr.microsoft.com/devcontainers/base:0-ubuntu",
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "terminal.integrated.shell.linux": "/bin/bash"
+            },
+            "extensions": [
+                "wix.vscode-import-cost",
+                "bradlc.vscode-tailwindcss",
+                "dbaeumer.vscode-eslint",
+                "firsttris.vscode-jest-runner",
+                "postman.postman",
+                "ms-vscode.vscode-node-debug2",
+                "styled-components.vscode-styled-components",
+                "msjsdiag.debugger-for-chrome",
+                "Gruntfuggly.todo-tree",
+                "ms-vscode.vscode-typescript-tslint-plugin",
+                "esbenp.prettier-vscode",
+                "ms-vscode.js-debug",
+                "streetsidesoftware.code-spell-checker",
+                "eamodio.gitlens",
+                "hbenl.vscode-mocha-test-adapter",
+                "orta.vscode-jest"
+            ]
+        }
+    },
+    "forwardPorts": [
+        3000,
+        3001
+    ],
+    "postCreateCommand": "curl -fsSL https://bun.sh/install | bash; npm install -g typescript",
+    "features": {
+        "ghcr.io/devcontainers/features/node:1": {}
+    }
+}

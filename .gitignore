@@ -38,6 +38,4 @@ components/.env
 .env
 bun.lockb
 
-
-.devcontainer
 package-lock.json
