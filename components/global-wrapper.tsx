@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
+import dynamic from 'next/dynamic';
 import Nav from './nav';
 import WelcomeScreen from './welcome_screen';
 import AboutMe from './aboutme';
@@ -7,11 +8,16 @@ import Experience from './experience';
 import Projects from './projects';
 import GetContact from './get-contact';
 import Footer from './footer';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { BackgroundBeamsWithCollision } from './bg-theme';
 import { cn } from '@lib/utils';
 import PageRevealAnimation from './ui/page_reveal';
+
+// Dynamic import for ToastContainer to avoid SSR issues
+const ToastContainer = dynamic(
+  () => import('react-toastify').then((mod) => mod.ToastContainer),
+  { ssr: false }
+);
 
 const GlobalWrapper: React.FC<{ data: Data }> = ({ data }) => {
   // Use a single ref to hold all section refs
