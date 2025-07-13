@@ -8,6 +8,7 @@ import Button from './re_usable/button/button'
 import { useInView } from 'react-intersection-observer';
 import Link from '@node_modules/next/link'
 import { toast } from 'react-toastify';
+import {useRouter} from 'next/navigation';
 
 const WelcomeScreen: React.FC<{
   data: Data,
@@ -16,6 +17,7 @@ const WelcomeScreen: React.FC<{
 }> = ({ data }) => {
   const [windowWidth, setWindowWidth] = useState(0);
   const [windowHeight, setWindowHeight] = useState(0);
+  const router = useRouter();
 
   useEffect(() => {
     setWindowHeight(window.innerHeight);
@@ -54,67 +56,8 @@ const WelcomeScreen: React.FC<{
     }
   }
   
-  const handleCvDownload = async () => {
-    const toastId = toast.loading(
-      'Realtime Exporting CV From Google Docs',
-      {
-        theme: "dark"
-      }
-    );
-    try {
-      const response = await fetch('/api/get-cv-from-docs', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ docId: data.aboutMe.cvGdriveFileId })
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to download CV from Google Docs');
-      }
-
-      // Get the PDF as a blob and download it
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = "Bishal's_Resume.pdf";
-      document.body.appendChild(a);
-      a.click();
-
-      // Clean up
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
-      toast.update(toastId, { render: 'CV downloaded successfully', type: 'success', isLoading: false, autoClose: 5000 });
-    } catch (error) {
-      console.error('Error downloading CV from Google Docs:', error);
-      
-      // Try fallback to static CV with delay
-      toast.update(toastId, { render: 'Google Docs failed, getting static CV...', type: 'info', isLoading: true });
-      
-      setTimeout(() => {
-        try {
-          if (data.aboutMe.cv) {
-            // Create a link to download the static CV
-            const a = document.createElement('a');
-            a.href = data.aboutMe.cv;
-            a.download = "Bishal's_Resume.pdf";
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            
-            toast.update(toastId, { render: 'CV downloaded successfully (static version)', type: 'success', isLoading: false, autoClose: 5000 });
-            toast.info('Static CV maybe old and not updated. Do consider getting in touch', {autoClose: 5000, theme: "dark"} );
-          } else {
-            throw new Error('No fallback CV path available');
-          }
-        } catch (fallbackError) {
-          console.error('Error downloading static CV:', fallbackError);
-          toast.update(toastId, { render: 'Failed to download CV', type: 'error', isLoading: false, autoClose: 5000 });
-        }
-      }, 2000); // 2 second delay
-    }
+  const handleGetCv = async () => {
+    router.push('/cv');
   }
 
   //_____________ Desktop View
@@ -192,15 +135,15 @@ const WelcomeScreen: React.FC<{
                 />
                 <Button
                   height={50}
-                  width={140}
-                  text='Download CV'
+                  width={80}
+                  text='Get CV'
                   bgColor='transparent'
                   textColor='white'
                   borderColor='transparent'
                   borderWidth={2}
                   tailwindClass='text-xl font-bold ml-[2px]'
                   onClick={
-                    handleCvDownload
+                    handleGetCv
                   }
                 />
                 <Link href={data.aboutMe.blogLink} className='translate-y-[-12px]'>
@@ -288,14 +231,14 @@ const WelcomeScreen: React.FC<{
           <Button
             height={50}
             width={140}
-            text='Download CV'
+            text='Get CV'
             bgColor='transparent'
             textColor='white'
             borderColor='transparent'
             borderWidth={2}
             tailwindClass='text-xl font-bold ml-[2px]'
             onClick={
-              handleCvDownload
+              handleGetCv
             }
           />
           <Link href={data.aboutMe.blogLink} className='translate-y-[-12px]'>

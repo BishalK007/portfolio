@@ -10,6 +10,7 @@ import { TransformWrapper, TransformComponent } from 'react-zoom-pan-pinch';
 import BackIcon from '@components/icons/back';
 import ReloadIcon from '@components/icons/reload';
 import DownloadIcon from '@components/icons/download';
+import { useRouter } from 'next/navigation';
 
 // Dynamic import for ToastContainer to avoid SSR issues
 const ToastContainer = dynamic(
@@ -35,6 +36,7 @@ export default function CVPage() {
   const [data, setData] = useState<Data | null>(null);
   const [isMobile, setIsMobile] = useState<boolean>(false);
   const [transformRef, setTransformRef] = useState<any>(null);
+  const router = useRouter();
 
   // Function to auto-fit PDF to viewport
   const autoFitPDF = React.useCallback((ref: any) => {
@@ -185,7 +187,7 @@ export default function CVPage() {
 
   // Navigation functions
   const handleBackClick = () => {
-    window.history.back();
+    router.push('/');
   };
 
   const handleReloadClick = () => {
