@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'Bishal',
     description: 'Bishal Karmakar, a software engineer and full-stack developer specializing in modern web technologies.',
     type: 'website',
-    url: '/cv',
+    url: '/',
   },
   twitter: {
     card: 'summary_large_image',
