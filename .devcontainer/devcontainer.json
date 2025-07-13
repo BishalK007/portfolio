@@ -7,11 +7,9 @@
                 "terminal.integrated.shell.linux": "/bin/bash"
             },
             "extensions": [
-                "wix.vscode-import-cost",
                 "bradlc.vscode-tailwindcss",
                 "dbaeumer.vscode-eslint",
                 "firsttris.vscode-jest-runner",
-                "postman.postman",
                 "ms-vscode.vscode-node-debug2",
                 "styled-components.vscode-styled-components",
                 "msjsdiag.debugger-for-chrome",
@@ -19,7 +17,6 @@
                 "ms-vscode.vscode-typescript-tslint-plugin",
                 "esbenp.prettier-vscode",
                 "ms-vscode.js-debug",
-                "streetsidesoftware.code-spell-checker",
                 "eamodio.gitlens",
                 "hbenl.vscode-mocha-test-adapter",
                 "orta.vscode-jest"
